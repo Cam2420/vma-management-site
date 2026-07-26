@@ -295,15 +295,27 @@ URLs, so browse to `/privacy.html` locally. On Vercel it is `/privacy`.
 
 ## Copy still worth a second look
 
-These answers were drafted to match the brief's positioning. They state business policy,
-so read them once and confirm they match what you actually intend to offer:
+These answers state business policy, so read them once and confirm they match what you
+actually intend to offer:
 
-- **FAQ, "Do I own my website?"** — currently answers yes: your domain, name, photos,
-  and content are yours.
-- **`terms.html`, Ownership** — same commitment, in contract language, plus the note
-  that VMA keeps its own tools and templates.
 - **`terms.html`, Billing and cancellation** — says cancellation takes effect at the end
   of the billing month and partial months are not pro-rated.
+
+### Do not flatten the ownership answer
+
+FAQ #3 ("Do I own my website?") and the Ownership section of `terms.html` deliberately
+draw a line between two different things:
+
+| | On cancellation |
+|---|---|
+| The **website** — the HTML, CSS, JS in this repo, plus your domain, name, photos, content | stays live, stays yours, fully portable |
+| The **automation** — missed-call text-back, lead follow-up, review requests | runs on VMA's platform, stops unless the client takes it over |
+
+This wording is settled and was reviewed specifically because ownership ambiguity is the
+most common cause of ugly cancellations. An answer that just says "yes, you own it" reads
+better and is the exact ambiguity that turns a cancellation into a dispute. If you shorten
+this copy later, keep the distinction. The portability of the site is a genuine selling
+point — say it, but say what stops alongside it.
 
 `terms.html` necessarily restates the commercial terms, since that is what a terms page
 is for. The "exactly three times" rule applies to the marketing page, `index.html`.
