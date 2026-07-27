@@ -68,16 +68,16 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============================================================================
-     1. HEADER  —  sticky, navy
+     1. HEADER  —  sticky, navy, compacts on scroll (desktop)
      Edit the phone number in BOTH places: the visible text and the tel: link.
      ========================================================================= -->
-<header class="hdr">
+<header class="hdr" id="hdr">
   <div class="wrap hdr__in">
     <a class="hdr__logo" href="/" aria-label="VMA Management — home">
       <img src="/assets/vma-lockup-navy.webp" width="371" height="88" alt="VMA Management">
     </a>
     <a class="hdr__tel" href="tel:+17869268584">
-      <svg class="hdr__tel-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+      <svg class="hdr__tel-icon" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
         <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/>
       </svg>
       <span>(786)&nbsp;926-8584</span>
@@ -89,13 +89,14 @@
 <main id="main">
 
 <!-- ============================================================================
-     2. HERO  —  headline, subhead, button, terms microcopy, phone demo
+     2. HERO  —  eyebrow, headline, subhead, button, terms microcopy, phone demo
      The phone demo is built in HTML/CSS. There is no image file to swap.
      ========================================================================= -->
 <section class="hero">
   <div class="wrap hero__grid">
 
     <div class="hero__copy">
+      <p class="eyebrow">Broward County &amp; Miami-Dade</p>
       <h1 class="hero__h1">Stop losing jobs to voicemail.</h1>
       <p class="hero__sub">We build your website and make sure every call, text, and form gets
         answered in seconds — even when you're on a job. Flat monthly fee, nothing upfront.</p>
@@ -107,18 +108,38 @@
     <!-- SIGNATURE ELEMENT — the missed-call text-back demo -->
     <div class="hero__demo">
       <figure class="phone">
-        <div class="phone__screen">
-          <div class="phone__missed">
-            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false">
-              <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/>
-            </svg>
-            <span>Missed call · 2:14 PM</span>
+        <div class="phone__device" id="phoneDemo">
+          <div class="phone__screen">
+            <div class="phone__status" aria-hidden="true">
+              <span class="phone__time">2:14</span>
+              <span class="phone__statusicons">
+                <svg viewBox="0 0 18 12" width="16" height="11" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1 8h2v3H1zM5 6h2v5H5zM9 4h2v7H9zM13 1h2v10h-2z"/></svg>
+                <svg viewBox="0 0 16 12" width="15" height="11" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 9.6a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zM8 5.4c1.9 0 3.6.7 4.9 1.9l-1.4 1.4A4.9 4.9 0 0 0 8 7.4c-1.4 0-2.6.5-3.5 1.3L3.1 7.3A6.9 6.9 0 0 1 8 5.4zM8 1c3 0 5.8 1.2 7.8 3.1l-1.4 1.4A8.4 8.4 0 0 0 8 3a8.4 8.4 0 0 0-6.4 2.5L.2 4.1A11.4 11.4 0 0 1 8 1z"/></svg>
+                <svg viewBox="0 0 25 12" width="24" height="11" aria-hidden="true" focusable="false"><rect x="0.5" y="0.5" width="21" height="11" rx="3" fill="none" stroke="currentColor" opacity=".5"/><rect x="2" y="2" width="15" height="8" rx="1.5" fill="currentColor"/><path fill="currentColor" opacity=".5" d="M23 4v4a2.2 2.2 0 0 0 0-4z"/></svg>
+              </span>
+            </div>
+            <div class="phone__peer">
+              <span class="phone__avatar" aria-hidden="true">CS</span>
+              <span class="phone__peername">Coral Springs AC</span>
+            </div>
+            <div class="phone__missed">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/>
+              </svg>
+              <span>Missed call · 2:14 PM</span>
+            </div>
+            <div class="phone__typing" id="phoneTyping" aria-hidden="true">
+              <span class="phone__dots"><i></i><i></i><i></i></span>
+            </div>
+            <div class="phone__row">
+              <p class="phone__bubble" id="replyBubble">Hi — this is Mike at Coral Springs AC. Sorry we
+                missed you, we're on a job. What do you need help with?</p>
+            </div>
+            <p class="phone__stamp">2:14 PM · 8 seconds later</p>
+            <div class="phone__inputbar" aria-hidden="true">
+              <span class="phone__inputfield">Text Message</span>
+            </div>
           </div>
-          <div class="phone__row">
-            <p class="phone__bubble" id="replyBubble">Hi — this is Mike at Coral Springs AC. Sorry we
-              missed you, we're on a job. What do you need help with?</p>
-          </div>
-          <p class="phone__stamp">2:14 PM · 8 seconds later</p>
         </div>
         <figcaption class="phone__cap">Every missed call gets a text back automatically, in seconds.</figcaption>
       </figure>
@@ -132,14 +153,18 @@
      ========================================================================= -->
 <section class="sec sec--paper">
   <div class="wrap col">
+    <p class="eyebrow">The problem</p>
     <h2>The job is gone before you put the tool down.</h2>
     <ul class="steps">
       <li>The phone rings while you're working.</li>
       <li>It goes to voicemail.</li>
       <li>They call the next name on the list.</li>
     </ul>
-    <p class="math">Miss four calls a week. If one was a <strong>$900 job</strong>, that's
-      <strong>$3,600 a month</strong> walking out the door.</p>
+    <div class="math">
+      <p class="math__line">Miss four calls a week. If one was a <b>$900 job</b>, that's</p>
+      <p class="math__big">$3,600<span class="math__per"> a month</span></p>
+      <p class="math__line">walking out the door.</p>
+    </div>
     <p class="math__note">You never find out it happened.</p>
   </div>
 </section>
@@ -149,13 +174,14 @@
      ========================================================================= -->
 <section class="sec">
   <div class="wrap col">
+    <p class="eyebrow">What you get</p>
     <h2>What you get</h2>
     <ul class="gets">
-      <li><b>Get found.</b> A modern website built for your trade and your service area.</li>
-      <li><b>Never miss a call.</b> An unanswered call gets a text back in seconds.</li>
-      <li><b>Reply first.</b> Calls, texts, and form fills answered immediately, all in one place.</li>
-      <li><b>Get more reviews.</b> Every finished job asks for a review on its own.</li>
-      <li><b>Run it from your phone.</b> One app, wherever you are.</li>
+      <li><span class="gets__num" aria-hidden="true">01</span><p><b>Get found.</b> A modern website built for your trade and your service area.</p></li>
+      <li><span class="gets__num" aria-hidden="true">02</span><p><b>Never miss a call.</b> An unanswered call gets a text back in seconds.</p></li>
+      <li><span class="gets__num" aria-hidden="true">03</span><p><b>Reply first.</b> Calls, texts, and form fills answered immediately, all in one place.</p></li>
+      <li><span class="gets__num" aria-hidden="true">04</span><p><b>Get more reviews.</b> Every finished job asks for a review on its own.</p></li>
+      <li><span class="gets__num" aria-hidden="true">05</span><p><b>Run it from your phone.</b> One app, wherever you are.</p></li>
     </ul>
   </div>
 </section>
@@ -165,6 +191,7 @@
      ========================================================================= -->
 <section class="sec sec--paper">
   <div class="wrap col">
+    <p class="eyebrow">How it works</p>
     <h2>How it works</h2>
     <ol class="how">
       <li>
@@ -188,6 +215,7 @@
      ========================================================================= -->
 <section class="sec sec--navy">
   <div class="wrap col">
+    <p class="eyebrow eyebrow--on-navy">Simple terms</p>
     <h2>Simple terms</h2>
     <!-- TERMS MENTION 2 of 3 -->
     <ul class="terms">
@@ -205,6 +233,7 @@
      ========================================================================= -->
 <section class="sec">
   <div class="wrap col">
+    <p class="eyebrow">Who this is for</p>
     <h2>Who this is for</h2>
     <div class="fit">
       <div class="fit__col">
@@ -229,12 +258,13 @@
 
 <!-- ============================================================================
      8. WHO YOU'RE DEALING WITH  —  text only
-     >>> Find and replace EVERY [FOUNDER NAME] in this file with your real name.
+     >>> Find and replace EVERY [[FOUNDER NAME]] in this file with your real name.
          Two are in the live text below. Two more are inside the commented-out
          founder photo block, so they are ready if you switch that block on. <<<
      ========================================================================= -->
 <section class="sec sec--paper">
   <div class="wrap col">
+    <p class="eyebrow">Who you're dealing with</p>
     <h2>Who you're dealing with</h2>
 
     <!-- ------------------------------------------------------------------
@@ -244,24 +274,26 @@
          ------------------------------------------------------------------
     <div class="founder">
       <img class="founder__img" src="/img/founder.webp" width="120" height="120"
-           alt="[FOUNDER NAME], owner of VMA Management">
-      <p class="founder__cap">[FOUNDER NAME]<span>Miami, Florida</span></p>
+           alt="[[FOUNDER NAME]], owner of VMA Management">
+      <p class="founder__cap">[[FOUNDER NAME]]<span>Miami, Florida</span></p>
     </div>
          ------------------------------------------------------------------ -->
 
-    <p>I'm [FOUNDER NAME]. I run VMA Management. You'll deal with me directly — on the call,
+    <p>I'm [[FOUNDER NAME]]. I run VMA Management. You'll deal with me directly — on the call,
       during the build, and every month after.</p>
     <p>I keep a small number of clients in South Florida so each one gets real attention.
       If something breaks, you text me, not a ticket queue.</p>
-    <p class="sig">— [FOUNDER NAME]</p>
+    <p class="sig">— [[FOUNDER NAME]]</p>
 
     <address class="nap">
-      <b>VMA Management LLC</b>
-      <span>Miami, Florida</span>
-      <span>1110 Brickell Ave, Suite 400K, Miami, FL 33131</span>
-      <span><a href="tel:+17869268584">(786) 926-8584</a></span>
-      <span><a href="mailto:hello@vmamgmt.com">hello@vmamgmt.com</a></span>
-      <span>Serving Broward &amp; Miami-Dade</span>
+      <div class="nap__head">
+        <b>VMA Management LLC</b>
+        <span>Miami, Florida</span>
+      </div>
+      <div class="nap__row"><span class="nap__k">Address</span><span>1110 Brickell Ave, Suite 400K, Miami, FL 33131</span></div>
+      <div class="nap__row"><span class="nap__k">Phone</span><a href="tel:+17869268584">(786) 926-8584</a></div>
+      <div class="nap__row"><span class="nap__k">Email</span><a href="mailto:hello@vmamgmt.com">hello@vmamgmt.com</a></div>
+      <div class="nap__row"><span class="nap__k">Service area</span><span>Serving Broward &amp; Miami-Dade</span></div>
     </address>
   </div>
 </section>
@@ -273,6 +305,7 @@
      -------------------------------------------------------------------------
 <section class="sec">
   <div class="wrap col">
+    <p class="eyebrow">What clients say</p>
     <h2>What clients say</h2>
     <ul class="quotes">
       <li class="quote">
@@ -285,10 +318,11 @@
      -------------------------------------------------------------------------- -->
 
 <!-- ============================================================================
-     9. FAQ  —  native <details>, no JavaScript
+     9. FAQ  —  native <details>, smooth open via main.js (works without JS too)
      ========================================================================= -->
 <section class="sec sec--rule">
   <div class="wrap col">
+    <p class="eyebrow">Questions</p>
     <h2>Questions</h2>
     <div class="faq">
 
@@ -335,6 +369,7 @@
      ========================================================================= -->
 <section class="sec sec--navy" id="book">
   <div class="wrap col">
+    <p class="eyebrow eyebrow--on-navy">Book a call</p>
     <h2>Book a 20-minute call</h2>
     <p class="book__lead">On the call I'll text your phone from your own business number, so you can
       watch it work before you decide anything.</p>
@@ -355,10 +390,11 @@
                  style="width:100%;height:720px;border:0"></iframe>
          ------------------------------------------------------------------------ -->
     <div class="book__embed" data-booking-src="" data-booking-title="Book a 20-minute call with VMA Management">
-      <p class="book__pending">
+      <div class="book__pending">
+        <p class="book__pending-k">Calendar</p>
         <b>The calendar isn't connected yet.</b>
-        Call or text <a href="tel:+17869268584">(786) 926-8584</a> and we'll get you on the schedule.
-      </p>
+        <p>Call or text <a href="tel:+17869268584">(786) 926-8584</a> and we'll get you on the schedule.</p>
+      </div>
     </div>
 
     <!-- tel: fallback — always visible, under the calendar -->
@@ -373,8 +409,11 @@
      11. FOOTER  —  navy
      ========================================================================= -->
 <footer class="ftr">
-  <div class="wrap col">
-    <img class="ftr__logo" src="/assets/vma-lockup-light.webp" width="320" height="76" alt="VMA Management">
+  <div class="wrap ftr__grid">
+    <div class="ftr__brand">
+      <img class="ftr__logo" src="/assets/vma-lockup-light.webp" width="320" height="76" alt="VMA Management">
+      <p class="ftr__copy">© <span data-year>2026</span> VMA Management LLC. All rights reserved.</p>
+    </div>
     <address class="ftr__nap">
       <span class="ftr__name">VMA Management LLC</span>
       <span>1110 Brickell Ave, Suite 400K, Miami, FL 33131</span>
@@ -386,7 +425,6 @@
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
     </nav>
-    <p class="ftr__copy">© <span data-year>2026</span> VMA Management LLC. All rights reserved.</p>
   </div>
 </footer>
 
