@@ -1,5 +1,6 @@
 /* ==========================================================================
    VMA Management LLC — styles.css
+   Redesign v2 — "premium through precision".
    Mobile-first, written at 375px and scaled up.
    Only the six brand tokens below are used. No other colors.
    ========================================================================== */
@@ -43,6 +44,12 @@
   --wrap: 1120px;
   --col:  680px;
   --r:    4px;
+
+  /* Neutral elevation — used ONLY on the phone device and the booking embed.
+     Never colored, never on content cards. */
+  --elev: 0 1px 2px rgba(8, 41, 99, .08), 0 12px 32px rgba(8, 41, 99, .12);
+
+  --ease: cubic-bezier(.22, .61, .21, 1);
 }
 
 /* ---------- Reset --------------------------------------------------------- */
@@ -82,85 +89,163 @@ ul, ol { padding: 0; list-style: none; }
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
 .col  { max-width: var(--col); }
 
-.sec { padding: 44px 0; }
+.sec { padding: 56px 0; }
 .sec--paper { background: var(--paper); }
 .sec--navy  { background: var(--navy); color: var(--white); }
 .sec--rule  { border-top: 1px solid var(--rule); }
 
-.sec h2 { font-size: clamp(26px, 6.4vw, 34px); font-weight: 700; margin-bottom: 20px; }
+.sec h2 {
+  font-size: clamp(28px, 6.8vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 26px;
+}
+
+/* ---------- Eyebrow — mono section label, the "spec sheet" voice ---------- */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::after {
+  content: "";
+  flex: 0 0 44px;
+  height: 1px;
+  background: var(--rule);
+}
+.eyebrow--on-navy { color: var(--white); }
+.eyebrow--on-navy::after { background: var(--muted); }
 
 /* ---------- Buttons ------------------------------------------------------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 56px; padding: 14px 26px;
+  min-height: 56px; padding: 14px 28px;
   border: 0; border-radius: var(--r);
   font-family: var(--body); font-size: 17px; font-weight: 600; line-height: 1.25;
   text-align: center; text-decoration: none; cursor: pointer;
+  transition: transform .16s var(--ease), box-shadow .16s var(--ease);
 }
 .btn--cyan { background: var(--cyan); color: var(--navy); }   /* navy label — 8.1:1 */
+.btn--cyan:hover { box-shadow: inset 0 0 0 999px rgba(8, 41, 99, .09); }
+.btn--cyan:active { transform: translateY(1px); box-shadow: inset 0 0 0 999px rgba(8, 41, 99, .14); }
 .btn--wide { width: 100%; }
 
 /* ==========================================================================
-   1. HEADER
+   1. HEADER — sticky navy, compacts on scroll (desktop only, via main.js)
    ========================================================================== */
 .hdr {
   position: sticky; top: 0; z-index: 50;
   background: var(--navy);
-  border-bottom: 1px solid var(--navy);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
 }
 .hdr__in {
   display: flex; flex-wrap: wrap; align-items: center;
-  gap: 10px 14px; padding-top: 8px; padding-bottom: 8px;
+  gap: 10px 16px; padding-top: 10px; padding-bottom: 10px;
 }
 .hdr__logo { display: block; margin-right: auto; line-height: 0; }
 /* The lockup PNG has the navy baked in at exactly #082963, so it sits on the
    navy bar with no visible edge. */
-.hdr__logo img { height: 26px; width: auto; }
+.hdr__logo img { height: 30px; width: auto; transition: height .25s var(--ease); }
 
 .hdr__tel {
-  display: inline-flex; align-items: center; gap: 7px;
+  display: inline-flex; align-items: center; gap: 8px;
   color: var(--white); font-size: 15px; font-weight: 600;
   text-decoration: none; white-space: nowrap;
-  min-height: 42px; padding: 0 2px;
+  min-height: 44px; padding: 0 2px;
 }
-.hdr__tel-icon { flex: none; }
-.hdr__tel:hover span { text-decoration: underline; }
+.hdr__tel-icon { flex: none; opacity: .85; }
+.hdr__tel:hover span { text-decoration: underline; text-underline-offset: 3px; }
 
-.hdr__btn { flex: 1 0 100%; }   /* full-width second row on mobile */
+.hdr__btn { flex: 1 0 100%; }   /* full-width second row on mobile — always visible */
 
 /* ==========================================================================
    2. HERO
    ========================================================================== */
-.hero { padding: 28px 0 44px; }
+.hero { padding: 40px 0 56px; }
 .hero__h1 {
-  font-size: clamp(36px, 10.2vw, 60px);
-  font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
-  max-width: 15ch;
+  font-size: clamp(40px, 11vw, 72px);
+  font-weight: 800; line-height: 1.0; letter-spacing: -0.035em;
+  max-width: 14ch;
 }
 .hero__sub {
-  margin-top: 18px; max-width: var(--col);
-  font-size: 18px; line-height: 1.55;
+  margin-top: 20px; max-width: 34rem;
+  font-size: 18px; line-height: 1.6;
 }
-.hero .btn { margin-top: 26px; }
+.hero .btn { margin-top: 28px; }
 .hero__terms {
-  margin-top: 14px; max-width: 44ch;
-  color: var(--muted); font-size: 14px; line-height: 1.5;
+  margin-top: 16px; max-width: 46ch;
+  color: var(--muted); font-size: 14px; line-height: 1.55;
 }
 
 /* ---------- Signature element: the phone demo ----------------------------- */
-.hero__demo { margin-top: 40px; }
-.phone { margin: 0; max-width: 340px; }
+.hero__demo { margin-top: 48px; position: relative; }
+/* Blueprint grid — extremely subtle, hero only, fades out at the edges. */
+.hero__demo::before {
+  content: "";
+  position: absolute; inset: -32px -20px;
+  background-image:
+    linear-gradient(to right, rgba(8, 41, 99, .05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 41, 99, .05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, #000 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, #000 30%, transparent 75%);
+  pointer-events: none;
+}
+.phone { margin: 0; max-width: 350px; position: relative; }
+.phone__device {
+  background: var(--navy);
+  border-radius: 38px;
+  padding: 9px;
+  box-shadow: var(--elev);
+}
 .phone__screen {
   background: var(--white);
-  border: 2px solid var(--navy);
-  border-radius: 26px;
-  padding: 18px 14px 16px;
+  border-radius: 30px;
+  padding: 12px 12px 12px;
+  overflow: hidden;
 }
+.phone__status {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 2px 8px 10px;
+  color: var(--navy);
+}
+.phone__time { font-family: var(--body); font-size: 12px; font-weight: 600; }
+.phone__statusicons { display: inline-flex; align-items: center; gap: 5px; }
+.phone__peer {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 2px 0 12px;
+}
+.phone__avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--paper); color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--body); font-size: 14px; font-weight: 600;
+}
+.phone__peername { font-size: 12px; font-weight: 600; color: var(--navy); }
 .phone__missed {
   display: flex; align-items: center; justify-content: center; gap: 7px;
-  color: var(--muted); font-size: 13px; font-weight: 600;
-  padding-bottom: 16px; margin-bottom: 16px;
+  color: var(--muted); font-size: 12.5px; font-weight: 600;
+  padding: 10px 0; margin-bottom: 12px;
+  border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
+}
+.phone__typing { display: none; padding: 2px 0 10px; }
+.phone__dots {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--paper);
+  padding: 10px 13px;
+  border-radius: 16px 16px 16px 4px;
+}
+.phone__dots i {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--muted);
 }
 .phone__row { display: flex; justify-content: flex-end; }
 .phone__bubble {
@@ -171,117 +256,195 @@ ul, ol { padding: 0; list-style: none; }
   font-size: 15px; line-height: 1.45; font-weight: 500;
 }
 .phone__stamp {
-  margin-top: 9px; text-align: right;
+  margin-top: 8px; text-align: right;
   font-family: var(--mono); font-size: 11px; color: var(--muted);
 }
+.phone__inputbar {
+  margin-top: 14px;
+  border-top: 1px solid var(--rule);
+  padding-top: 10px;
+}
+.phone__inputfield {
+  display: block;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 7px 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
 .phone__cap {
-  margin-top: 14px; max-width: 34ch;
+  margin-top: 18px; max-width: 34ch;
   color: var(--muted); font-size: 14px; line-height: 1.5;
+  padding-left: 14px;
+  border-left: 2px solid var(--rule);
 }
 
-/* Fade-in for the reply bubble. This is the ONLY animation on the site.
-   main.js adds .js-anim, then .is-in once the bubble scrolls into view.
-   The rule below is the only thing that makes it move, and it applies on
-   desktop widths only, and only when reduced motion has not been requested.
-   No JavaScript, a narrow screen, or reduced motion — the bubble is simply
-   visible with no animation at all. */
+/* ---------- The one signature sequence (desktop only) ----------------------
+   main.js adds .js-anim to the device, then .is-in once it scrolls into view.
+   While armed: the bubble and stamp wait, the typing indicator shows. When
+   .is-in lands: typing disappears and the reply settles in. The whole thing
+   only exists at desktop widths with motion allowed — no JS, a narrow
+   screen, or reduced motion means the bubble is simply visible, statically. */
 @media (min-width: 860px) and (prefers-reduced-motion: no-preference) {
-  .phone__bubble.js-anim { opacity: 0; transform: translateY(10px); }
-  .phone__bubble.js-anim.is-in {
-    opacity: 1; transform: none;
-    transition: opacity .5s ease-out, transform .5s ease-out;
+  .phone__device.js-anim .phone__typing { display: block; }
+  .phone__device.js-anim .phone__row,
+  .phone__device.js-anim .phone__stamp {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .45s var(--ease), transform .45s var(--ease);
   }
+  .phone__device.js-anim .phone__dots i { animation: phoneDot 1s infinite; }
+  .phone__device.js-anim .phone__dots i:nth-child(2) { animation-delay: .15s; }
+  .phone__device.js-anim .phone__dots i:nth-child(3) { animation-delay: .3s; }
+  .phone__device.js-anim.is-in .phone__typing { display: none; }
+  .phone__device.js-anim.is-in .phone__row,
+  .phone__device.js-anim.is-in .phone__stamp { opacity: 1; transform: none; }
+  .phone__device.js-anim.is-in .phone__stamp { transition-delay: .18s; }
+}
+@keyframes phoneDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: .55; }
+  30%           { transform: translateY(-3px); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
 /* ==========================================================================
    3. THE PROBLEM
    ========================================================================== */
-.steps { margin-top: 4px; }
+.steps { margin-top: 2px; }
 .steps li {
-  position: relative; padding-left: 20px; margin-bottom: 10px;
+  position: relative; padding-left: 26px; margin-bottom: 12px;
   font-size: 18px;
 }
 .steps li::before {
-  content: ""; position: absolute; left: 0; top: 12px;
-  width: 8px; height: 2px; background: var(--navy);
+  content: ""; position: absolute; left: 0; top: 13px;
+  width: 12px; height: 2px; background: var(--navy);
 }
 .math {
-  margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule);
-  font-family: var(--display); font-weight: 700; font-size: clamp(21px, 5.4vw, 27px);
+  margin-top: 30px; padding: 26px 0 24px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.math__line {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(19px, 4.6vw, 23px);
   line-height: 1.3; letter-spacing: -0.02em;
 }
-.math__note { margin-top: 10px; color: var(--muted); font-size: 16px; }
+.math__line b { font-weight: 800; }
+.math__big {
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(56px, 15vw, 88px);
+  line-height: 1.05; letter-spacing: -0.04em;
+  margin: 6px 0 4px;
+}
+.math__per {
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 700; letter-spacing: -0.02em;
+  color: var(--muted);
+}
+.math__note {
+  margin-top: 16px;
+  color: var(--muted); font-size: 16px;
+  font-family: var(--mono); letter-spacing: .02em;
+}
 
 /* ==========================================================================
    4. WHAT YOU GET
    ========================================================================== */
+.gets { border-top: 1px solid var(--rule); }
 .gets li {
-  padding: 15px 0; border-bottom: 1px solid var(--rule);
-  font-size: 17px; line-height: 1.5;
+  display: flex; gap: 18px; align-items: baseline;
+  padding: 18px 0; border-bottom: 1px solid var(--rule);
 }
-.gets li:first-child { border-top: 1px solid var(--rule); }
-.gets b { font-family: var(--display); font-weight: 700; letter-spacing: -0.01em; }
+.gets__num {
+  flex: none;
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  color: var(--muted); letter-spacing: .08em;
+  padding-top: 3px;
+}
+.gets p { font-size: 17px; line-height: 1.5; }
+.gets b {
+  font-family: var(--display); font-weight: 800;
+  font-size: 19px; letter-spacing: -0.015em;
+}
 
 /* ==========================================================================
    5. HOW IT WORKS
    ========================================================================== */
-.how { counter-reset: step; }
+.how { counter-reset: step; position: relative; }
+/* connecting spine */
+.how::before {
+  content: "";
+  position: absolute; left: 21px; top: 22px; bottom: 22px;
+  width: 1px; background: var(--rule);
+}
 .how li {
   counter-increment: step;
-  position: relative; padding-left: 48px; margin-bottom: 26px;
+  position: relative; padding-left: 64px; margin-bottom: 32px;
 }
 .how li:last-child { margin-bottom: 0; }
 .how li::before {
   content: counter(step);
   position: absolute; left: 0; top: 0;
-  width: 34px; height: 34px;
+  width: 43px; height: 43px;
   display: flex; align-items: center; justify-content: center;
   background: var(--navy); color: var(--white);
   border-radius: var(--r);
-  font-family: var(--display); font-weight: 700; font-size: 17px;
+  font-family: var(--display); font-weight: 800; font-size: 19px;
+  box-shadow: 0 0 0 4px var(--paper);   /* knocks the spine out behind the chip */
 }
-.how h3 { font-size: 19px; font-weight: 700; padding-top: 4px; }
-.how p  { margin-top: 5px; color: var(--muted); }
+.how h3 { font-size: 20px; font-weight: 800; padding-top: 8px; letter-spacing: -0.02em; }
+.how p  { margin-top: 6px; color: var(--muted); }
 
 /* ==========================================================================
    6. SIMPLE TERMS  (navy band)
    ========================================================================== */
-.terms { margin-bottom: 30px; }
+.terms { margin-bottom: 34px; display: grid; gap: 16px; }
 .terms li {
-  position: relative; padding-left: 30px; margin-bottom: 14px;
+  position: relative; padding-left: 34px;
   font-size: 18px; line-height: 1.5;
 }
 /* cyan check — the one hairline accent detail. Cyan on navy is 8.1:1. */
 .terms li::before {
-  content: ""; position: absolute; left: 2px; top: 7px;
-  width: 11px; height: 6px;
-  border-left: 2px solid var(--cyan); border-bottom: 2px solid var(--cyan);
+  content: ""; position: absolute; left: 2px; top: 6px;
+  width: 13px; height: 7px;
+  border-left: 2.5px solid var(--cyan); border-bottom: 2.5px solid var(--cyan);
   transform: rotate(-45deg);
 }
 
 /* ==========================================================================
    7. WHO IT'S FOR / NOT FOR
    ========================================================================== */
-.fit { display: grid; gap: 30px; }
-.fit__h { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+.fit { display: grid; gap: 24px; }
+.fit__col {
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  padding: 24px 22px;
+  background: var(--white);
+}
+.fit__h {
+  font-size: 18px; font-weight: 800; letter-spacing: -0.015em;
+  margin-bottom: 16px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
 .fit__h--no { color: var(--muted); }
 .fit__list li {
-  position: relative; padding-left: 28px; margin-bottom: 11px; line-height: 1.5;
+  position: relative; padding-left: 30px; margin-bottom: 13px; line-height: 1.5;
 }
+.fit__list li:last-child { margin-bottom: 0; }
 .fit__list--yes li::before {
   content: ""; position: absolute; left: 3px; top: 6px;
-  width: 11px; height: 6px;
-  border-left: 2px solid var(--navy); border-bottom: 2px solid var(--navy);
+  width: 12px; height: 7px;
+  border-left: 2.5px solid var(--navy); border-bottom: 2.5px solid var(--navy);
   transform: rotate(-45deg);
 }
 .fit__list--no li { color: var(--muted); }
 .fit__list--no li::before,
 .fit__list--no li::after {
   content: ""; position: absolute; left: 4px; top: 11px;
-  width: 12px; height: 2px; background: var(--muted);
+  width: 13px; height: 2px; background: var(--muted);
 }
 .fit__list--no li::before { transform: rotate(45deg); }
 .fit__list--no li::after  { transform: rotate(-45deg); }
@@ -290,17 +453,36 @@ ul, ol { padding: 0; list-style: none; }
    8. WHO YOU'RE DEALING WITH
    ========================================================================== */
 .sec p + p { margin-top: 14px; }
-.sig { margin-top: 16px; font-weight: 600; }
+.sig { margin-top: 18px; font-weight: 600; }
 
+/* NAP — the business card object */
 .nap {
-  display: flex; flex-direction: column; gap: 4px;
-  margin-top: 28px; padding: 20px;
+  margin-top: 30px;
   border: 1px solid var(--rule); border-radius: var(--r);
   background: var(--white);
   font-style: normal; font-size: 16px; line-height: 1.5;
+  overflow: hidden;
 }
-.nap b { font-family: var(--display); font-size: 17px; }
-.nap a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+.nap__head {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.nap__head b { font-family: var(--display); font-size: 19px; font-weight: 800; letter-spacing: -0.015em; }
+.nap__head span { color: var(--muted); font-size: 15px; }
+.nap__row {
+  display: grid; grid-template-columns: 1fr; gap: 2px;
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.nap__row:last-child { border-bottom: 0; }
+.nap__k {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--muted);
+}
+.nap__row a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.nap__row a:hover { text-decoration-thickness: 2px; }
 
 /* Founder photo block — styled and ready, commented out in index.html. */
 .founder { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
@@ -310,7 +492,7 @@ ul, ol { padding: 0; list-style: none; }
 
 /* Testimonials — styled and ready, commented out in index.html. */
 .quotes { display: grid; gap: 20px; }
-.quote { padding: 20px; border: 1px solid var(--rule); border-radius: var(--r); }
+.quote { padding: 22px; border: 1px solid var(--rule); border-radius: var(--r); }
 .quote blockquote { margin: 0; font-size: 18px; line-height: 1.5; }
 .quote__by { margin-top: 12px; font-weight: 600; font-size: 15px; }
 .quote__by span { display: block; font-weight: 400; color: var(--muted); }
@@ -323,43 +505,66 @@ ul, ol { padding: 0; list-style: none; }
 .faq summary {
   position: relative;
   display: flex; align-items: center;
-  min-height: 60px; padding: 12px 44px 12px 0;
-  font-family: var(--display); font-weight: 700; font-size: 18px;
+  min-height: 66px; padding: 14px 48px 14px 0;
+  font-family: var(--display); font-weight: 800; font-size: 19px;
+  letter-spacing: -0.015em;
   cursor: pointer; list-style: none;
+  transition: color .16s var(--ease);
 }
+.faq summary:hover { color: var(--muted); }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
   content: ""; position: absolute; right: 8px; top: 50%;
-  width: 10px; height: 10px; margin-top: -7px;
-  border-right: 2px solid var(--navy); border-bottom: 2px solid var(--navy);
+  width: 11px; height: 11px; margin-top: -8px;
+  border-right: 2.5px solid var(--navy); border-bottom: 2.5px solid var(--navy);
   transform: rotate(45deg);
+  transition: transform .22s var(--ease), margin-top .22s var(--ease);
 }
-.faq details[open] summary::after { margin-top: -2px; transform: rotate(225deg); }
-.faq__a { padding: 0 0 20px; max-width: 60ch; }
+.faq details[open] summary::after { margin-top: -3px; transform: rotate(225deg); }
+.faq__a { padding: 0 0 24px; max-width: 60ch; overflow: hidden; }
 .faq__a p { color: var(--muted); }
 
 /* ==========================================================================
    10. BOOKING
    ========================================================================== */
-#book { scroll-margin-top: 118px; }
-.book__lead { max-width: 52ch; font-size: 18px; margin-bottom: 26px; }
+#book { scroll-margin-top: 132px; }
+.book__lead { max-width: 52ch; font-size: 18px; margin-bottom: 30px; }
 
 .book__embed {
   background: var(--white);
   border-radius: var(--r);
   overflow: hidden;
+  box-shadow: var(--elev);
 }
 .book__embed iframe { display: block; width: 100%; height: 720px; border: 0; }
 
+/* Empty state — intentional, not an error. Shows until data-booking-src is set. */
 .book__pending {
-  padding: 26px 22px;
-  color: var(--navy); font-size: 16px; line-height: 1.55;
+  padding: 44px 32px;
+  color: var(--navy); font-size: 17px; line-height: 1.55;
+  text-align: center;
+  border: 1px dashed var(--rule);
+  border-radius: var(--r);
+  margin: 1px;
 }
-.book__pending b { display: block; font-family: var(--display); font-size: 18px; margin-bottom: 6px; }
+.book__pending-k {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.book__pending b {
+  display: block;
+  font-family: var(--display); font-size: 22px; font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
 .book__pending a { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.book__pending a:hover { text-decoration-thickness: 2px; }
 
-.book__fallback { margin-top: 20px; font-size: 17px; }
+.book__fallback { margin-top: 24px; font-size: 17px; }
 .book__fallback a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.book__fallback a:hover { text-decoration-thickness: 2px; }
 
 /* ==========================================================================
    11. FOOTER
@@ -367,35 +572,38 @@ ul, ol { padding: 0; list-style: none; }
 /* All footer type is white on navy (13.9:1). --muted would only reach 2.3:1
    here, so hierarchy is carried by size and weight instead of color. */
 /* hairline so the footer separates from the navy booking band above it */
-.ftr { background: var(--navy); color: var(--white); padding: 40px 0 34px; border-top: 1px solid var(--muted); }
-.ftr__logo { width: 160px; height: auto; margin-bottom: 24px; }
-.ftr__nap { display: flex; flex-direction: column; gap: 5px; font-style: normal; font-size: 15px; }
-.ftr__name { font-family: var(--display); font-weight: 700; font-size: 17px; }
+.ftr { background: var(--navy); color: var(--white); padding: 48px 0 40px; border-top: 1px solid var(--muted); }
+.ftr__grid { display: grid; gap: 30px; }
+.ftr__logo { width: 180px; height: auto; margin-bottom: 18px; }
+.ftr__copy { font-size: 14px; }
+.ftr__nap { display: flex; flex-direction: column; gap: 6px; font-style: normal; font-size: 15px; }
+.ftr__name { font-family: var(--display); font-weight: 800; font-size: 17px; }
 .ftr__nap a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
-.ftr__links { display: flex; gap: 22px; margin-top: 22px; }
+.ftr__nap a:hover { text-decoration-thickness: 2px; }
+.ftr__links { display: flex; gap: 26px; align-items: start; }
 .ftr__links a {
   color: var(--white); font-size: 15px; font-weight: 600;
   text-decoration: underline; text-underline-offset: 3px;
   min-height: 44px; display: inline-flex; align-items: center;
 }
-.ftr__copy { margin-top: 14px; font-size: 14px; }
+.ftr__links a:hover { text-decoration-thickness: 2px; }
 
 /* ==========================================================================
    LEGAL PAGES (privacy.html / terms.html)
    ========================================================================== */
-.legal { padding: 40px 0 60px; }
-.legal h1 { font-size: clamp(30px, 8vw, 42px); font-weight: 800; }
+.legal { padding: 48px 0 72px; }
+.legal h1 { font-size: clamp(32px, 8vw, 44px); font-weight: 800; letter-spacing: -0.03em; }
 .legal .updated { margin-top: 10px; color: var(--muted); font-size: 15px; }
-.legal h2 { font-size: 21px; font-weight: 700; margin-top: 36px; margin-bottom: 10px; }
+.legal h2 { font-size: 21px; font-weight: 800; margin-top: 38px; margin-bottom: 10px; }
 .legal p { margin-top: 12px; }
 .legal ul { margin-top: 12px; }
-.legal li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+.legal li { position: relative; padding-left: 24px; margin-bottom: 8px; }
 .legal li::before {
   content: ""; position: absolute; left: 0; top: 12px;
-  width: 8px; height: 2px; background: var(--navy);
+  width: 10px; height: 2px; background: var(--navy);
 }
 .legal a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
-.legal .back { display: inline-block; margin-top: 34px; font-weight: 600; }
+.legal .back { display: inline-block; margin-top: 36px; font-weight: 600; }
 
 /* Consent line for any future form that collects a phone number.
    Required for carrier (A2P 10DLC) messaging registration. */
@@ -407,32 +615,44 @@ ul, ol { padding: 0; list-style: none; }
    BREAKPOINTS
    ========================================================================== */
 @media (min-width: 600px) {
-  .fit { grid-template-columns: 1fr 1fr; gap: 36px; }
-  .btn--wide { width: auto; min-width: 280px; }
+  .fit { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .btn--wide { width: auto; min-width: 300px; }
+  .nap__row { grid-template-columns: 132px 1fr; align-items: baseline; }
 }
 
 @media (min-width: 860px) {
   body { font-size: 18px; }
-  .sec { padding: 72px 0; }
-  .sec h2 { margin-bottom: 26px; }
+  .sec { padding: 88px 0; }
+  .sec h2 { margin-bottom: 34px; }
 
-  .hdr__in { gap: 24px; padding-top: 0; padding-bottom: 0; min-height: 76px; }
-  .hdr__logo img { height: 34px; }
-  .hdr__btn { flex: none; min-height: 48px; padding: 12px 22px; font-size: 16px; }
+  .hdr__in { gap: 28px; padding-top: 0; padding-bottom: 0; min-height: 88px; transition: min-height .25s var(--ease); }
+  .hdr__logo img { height: 40px; }
+  .hdr__btn { flex: none; min-height: 50px; padding: 13px 24px; font-size: 16px; }
+  .hdr__tel { font-size: 16px; }
 
-  .hero { padding: 64px 0 76px; }
-  .hero__grid { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 56px; align-items: start; }
-  .hero__demo { margin-top: 6px; }
+  /* compact state after scrolling — keeps the CTA present without bulk */
+  .hdr.is-compact .hdr__in { min-height: 64px; }
+  .hdr.is-compact .hdr__logo img { height: 30px; }
+  .hdr.is-compact .hdr__btn { min-height: 44px; padding: 10px 20px; }
+
+  .hero { padding: 84px 0 96px; }
+  .hero__grid { display: grid; grid-template-columns: minmax(0,1fr) 360px; gap: 64px; align-items: center; }
+  .hero__demo { margin-top: 0; }
   .hero__sub { font-size: 20px; }
 
-  #book { scroll-margin-top: 96px; }
+  .terms { grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+
+  #book { scroll-margin-top: 104px; }
   .book__lead { font-size: 20px; }
+
+  .ftr__grid { grid-template-columns: 1.2fr 1fr auto; gap: 48px; align-items: start; }
   .ftr__nap { font-size: 16px; }
+  .ftr__links { flex-direction: column; gap: 4px; }
 }
 
 @media (min-width: 1040px) {
-  .hero__grid { grid-template-columns: minmax(0,1fr) 380px; gap: 72px; }
-  .phone { max-width: 380px; }
+  .hero__grid { grid-template-columns: minmax(0,1fr) 400px; gap: 84px; }
+  .phone { max-width: 400px; }
 }
 
 /* ---------- Print --------------------------------------------------------- */
