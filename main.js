@@ -1,15 +1,14 @@
 /* ==========================================================================
    VMA Management LLC — main.js
-   Three small jobs. Nothing here is required for the page to work.
+   Responsive behavior, lazy booking embed, and interactive phone demo.
    ========================================================================== */
 (function () {
   'use strict';
 
   /* ---------------------------------------------------------------------
-     1. BOOKING CALENDAR
-     Reads the URL you pasted into data-booking-src="" in index.html and
-     builds a lazy-loaded iframe from it. If it is empty, the "call us
-     instead" panel already in the HTML stays put.
+     1. BOOKING CALENDAR EMBED
+     Reads data-booking-src="" in index.html. If provided, replaces fallback
+     card with an iframe. If empty, the sleek fallback card remains visible.
      --------------------------------------------------------------------- */
   var slot = document.querySelector('.book__embed');
   if (slot) {
@@ -26,26 +25,24 @@
   }
 
   /* ---------------------------------------------------------------------
-     2. INTERACTIVE PHONE DEMO
-     The messages live in index.html so they remain easy to edit. JavaScript
-     only switches scenarios and reveals each step in sequence. Without JS,
-     the complete missed-call example remains visible.
+     2. INTERACTIVE PHONE DEMO & MICRO-INTERACTIONS
+     Features typing indicator sequence, scenario switching, and auto-cycling.
      --------------------------------------------------------------------- */
   var demo = document.querySelector('[data-phone-demo]');
   if (demo) {
     var tabs = demo.querySelectorAll('[data-scenario-tab]');
     var panels = demo.querySelectorAll('[data-scenario-panel]');
     var depthStage = demo.querySelector('[data-depth-stage]');
+    var typing = demo.querySelector('[data-typing]');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    var timers = [];
+
+    var scenarios = ['missed', 'form', 'review'];
     var currentScenario = 'missed';
+    var timers = [];
+    var autoCycleInterval = null;
+    var userInteracting = false;
     var observer = null;
-    var depthFrame = null;
-    var depthBounds = null;
-    var pendingTiltX = 1;
-    var pendingTiltY = -3;
-    var pendingLift = -2;
 
     var clearTimers = function () {
       timers.forEach(function (timer) { window.clearTimeout(timer); });
@@ -64,6 +61,8 @@
       clearTimers();
       var steps = panel.querySelectorAll('[data-step]');
 
+      if (typing) typing.hidden = true;
+
       Array.prototype.forEach.call(steps, function (step) {
         step.classList.remove('is-visible');
       });
@@ -75,10 +74,28 @@
         return;
       }
 
+      var delay = 100;
       Array.prototype.forEach.call(steps, function (step, index) {
-        timers.push(window.setTimeout(function () {
-          step.classList.add('is-visible');
-        }, 120 + (index * 480)));
+        if (index === 1 && typing) {
+          // Show typing indicator before revealing sent response bubble
+          timers.push(window.setTimeout(function () {
+            typing.hidden = false;
+          }, delay));
+
+          delay += 550;
+
+          timers.push(window.setTimeout(function () {
+            typing.hidden = true;
+            step.classList.add('is-visible');
+          }, delay));
+
+          delay += 450;
+        } else {
+          timers.push(window.setTimeout(function () {
+            step.classList.add('is-visible');
+          }, delay));
+          delay += (index === 0 ? 250 : 450);
+        }
       });
     };
 
@@ -101,91 +118,61 @@
       revealSteps(activePanel, animate);
     };
 
-    var writeDepth = function () {
-      depthFrame = null;
-      if (!depthStage) return;
-      depthStage.style.setProperty('--tilt-x', pendingTiltX.toFixed(2) + 'deg');
-      depthStage.style.setProperty('--tilt-y', pendingTiltY.toFixed(2) + 'deg');
-      depthStage.style.setProperty('--depth-lift', pendingLift.toFixed(2) + 'px');
+    // Auto-cycling logic
+    var startAutoCycle = function () {
+      if (autoCycleInterval || reducedMotion.matches || userInteracting) return;
+      autoCycleInterval = window.setInterval(function () {
+        var currentIndex = scenarios.indexOf(currentScenario);
+        var nextIndex = (currentIndex + 1) % scenarios.length;
+        activateScenario(scenarios[nextIndex], true);
+      }, 4500);
     };
 
-    var queueDepth = function (tiltX, tiltY, lift) {
-      pendingTiltX = tiltX;
-      pendingTiltY = tiltY;
-      pendingLift = lift;
-      if (!depthFrame) depthFrame = window.requestAnimationFrame(writeDepth);
-    };
-
-    var resetDepth = function () {
-      if (!depthStage) return;
-      depthStage.classList.remove('is-interacting');
-      depthBounds = null;
-      queueDepth(1, -3, -2);
-    };
-
-    if (depthStage) {
-      depthStage.classList.add('depth-enabled');
-      queueDepth(1, -3, -2);
-
-      if (finePointer.matches && !reducedMotion.matches) {
-        depthStage.addEventListener('pointerenter', function () {
-          depthBounds = depthStage.getBoundingClientRect();
-          depthStage.classList.add('is-interacting');
-        });
-        depthStage.addEventListener('pointermove', function (event) {
-          if (!depthBounds) depthBounds = depthStage.getBoundingClientRect();
-          depthStage.classList.add('is-interacting');
-          var horizontal = ((event.clientX - depthBounds.left) / depthBounds.width) - 0.5;
-          var vertical = ((event.clientY - depthBounds.top) / depthBounds.height) - 0.5;
-          var tiltX = Math.max(-4, Math.min(4, vertical * -8));
-          var tiltY = Math.max(-4, Math.min(4, horizontal * 8));
-          queueDepth(tiltX, tiltY, -4);
-        });
-        depthStage.addEventListener('pointerleave', resetDepth);
-        depthStage.addEventListener('pointercancel', resetDepth);
+    var stopAutoCycle = function () {
+      if (autoCycleInterval) {
+        window.clearInterval(autoCycleInterval);
+        autoCycleInterval = null;
       }
-    }
+    };
+
+    // Pause cycling on user hover/interaction
+    demo.addEventListener('pointerenter', function () {
+      userInteracting = true;
+      stopAutoCycle();
+    });
+    demo.addEventListener('pointerleave', function () {
+      userInteracting = false;
+      startAutoCycle();
+    });
 
     demo.classList.add('demo-ready');
     activateScenario(currentScenario, false);
 
     Array.prototype.forEach.call(tabs, function (tab) {
       tab.addEventListener('click', function () {
-        if (observer) observer.disconnect();
+        userInteracting = true;
+        stopAutoCycle();
         if (depthStage) depthStage.classList.add('is-depth-visible');
         activateScenario(tab.getAttribute('data-scenario-tab'), true);
       });
     });
 
-    if ('IntersectionObserver' in window && !reducedMotion.matches) {
-      Array.prototype.forEach.call(
-        findPanel(currentScenario).querySelectorAll('[data-step]'),
-        function (step) { step.classList.remove('is-visible'); }
-      );
+    // Intersection observer for entrance animation & auto-cycle start
+    if ('IntersectionObserver' in window) {
       observer = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
-        observer.disconnect();
-        if (depthStage) depthStage.classList.add('is-depth-visible');
-        activateScenario(currentScenario, true);
-      }, { threshold: 0.08 });
-      observer.observe(depthStage || demo);
-    } else if (depthStage) {
-      depthStage.classList.add('is-depth-visible');
-    }
-
-    var showCurrentWithoutMotion = function () {
+        if (entries[0].isIntersecting) {
+          if (depthStage) depthStage.classList.add('is-depth-visible');
+          activateScenario(currentScenario, !reducedMotion.matches);
+          startAutoCycle();
+        } else {
+          stopAutoCycle();
+        }
+      }, { threshold: 0.15 });
+      observer.observe(demo);
+    } else {
       if (depthStage) depthStage.classList.add('is-depth-visible');
-      resetDepth();
-      activateScenario(currentScenario, false);
-    };
-    if (reducedMotion.addEventListener) {
-      reducedMotion.addEventListener('change', showCurrentWithoutMotion);
-    } else if (reducedMotion.addListener) {
-      reducedMotion.addListener(showCurrentWithoutMotion);
+      startAutoCycle();
     }
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) showCurrentWithoutMotion();
-    });
   }
 
   /* ---------------------------------------------------------------------

@@ -2,17 +2,16 @@
 
 ## Pre-implementation visual system
 
-The approved Field-grade precision hero remains the visual anchor: white space, navy typography, a restrained cyan action color, and one dimensional phone demonstration. Below the fold, alternating white, near-white, and full-bleed navy sections create a deliberate conversion rhythm without turning the page into a generic SaaS layout. Worker photography is documentary rather than posed, with each professional focused on the job while the ringing phone remains secondary evidence. Typography stays self-hosted and the interface remains static HTML, CSS, and vanilla JavaScript.
+The approved Field-grade precision hero remains the visual anchor: white space, navy typography, a restrained cyan action color, and one dimensional phone demonstration. Below the fold, alternating white, near-white, and full-bleed navy sections create a deliberate conversion rhythm without turning the page into a generic SaaS layout. The current Gemini branch uses a typographic problem breakdown instead of worker photography, keeping the interactive phone as the only dimensional focal point. Typography stays self-hosted and the interface remains static HTML, CSS, and vanilla JavaScript.
 
 ## Scope
 
-- Rebuilt the page below the hero from the supplied conversion brief.
-- Increased the visible separation between the scenario controls and the phone.
-- Preserved the approved hero, realistic phone, three service scenarios, CTA wording, accountability details, and focused worker imagery.
-- Added a mobile sticky conversion bar.
-- Corrected local asset paths so the design loads from both the local HTTP preview and a directly opened `index.html` file.
-- Branch: `codex/vma-conversion-redesign`
-- Preview: `http://127.0.0.1:4173/?preview=attached-brief-file-safe`
+- Removed the duplicate hero action row and placed the commercial terms directly beneath the iPhone.
+- Replaced the Live Proof block with the existing “Ready when you are” booking section and removed its former duplicate location.
+- Removed unnecessary em dashes from visitor-facing copy while preserving meaning.
+- Preserved the realistic phone, three service scenarios, header CTA, mobile sticky conversion bar, guarantee, and FAQ.
+- Branch: `gemini-redesign-test`
+- Preview: `http://127.0.0.1:4173/?preview=gemini-ready-move-final`
 - Review date: 2026-07-27
 
 ## Source visual truth
@@ -23,9 +22,10 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
   `/var/folders/0y/lzxgrfms7wxc97_30sztl4f80000gn/T/TemporaryItems/NSIRD_screencaptureui_BGdaWB/Screenshot 2026-07-27 at 4.47.52 PM.png`
 - Phone-spacing reference:
   `/var/folders/0y/lzxgrfms7wxc97_30sztl4f80000gn/T/TemporaryItems/NSIRD_screencaptureui_Kcs4oQ/Screenshot 2026-07-27 at 12.19.50 PM.png`
-- Focused worker assets:
-  `/Users/digimotion/Documents/vma-management-site/img/dog-groomer-focused-work.jpg`
-  `/Users/digimotion/Documents/vma-management-site/img/auto-repair-focused-work.jpg`
+- Live Proof block selected for replacement:
+  `/var/folders/0y/lzxgrfms7wxc97_30sztl4f80000gn/T/TemporaryItems/NSIRD_screencaptureui_9vTFcn/Screenshot 2026-07-27 at 7.40.11 PM.png`
+- Duplicate hero actions selected for removal:
+  `/var/folders/0y/lzxgrfms7wxc97_30sztl4f80000gn/T/TemporaryItems/NSIRD_screencaptureui_1YNxCq/Screenshot 2026-07-27 at 7.42.00 PM.png`
 
 ## Implementation evidence
 
@@ -33,6 +33,14 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
   `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/29-file-safe-http-desktop.png`
 - Final mobile hero at 390 × 844:
   `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/30-file-safe-http-mobile.png`
+- Cleaned desktop hero at 1280 × 900 CSS px and 1×:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/32-gemini-clean-hero-desktop.png`
+- Moved “Ready when you are” section at 1280 × 900 CSS px and 1×:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/33-gemini-ready-section-desktop.png`
+- Cleaned mobile hero, phone terms, and moved booking section at 390 × 844 CSS px and 1×:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/34-gemini-clean-hero-mobile.png`
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/35-gemini-mobile-phone-terms.png`
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/36-gemini-ready-section-mobile.png`
 - Problem section:
   `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/21-attached-brief-problem-desktop.png`
 - What’s Included section:
@@ -52,15 +60,24 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
   `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/18-phone-spacing-comparison.jpg`
 - Before/after worker focus:
   `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/19-worker-focus-comparison.jpg`
+- Live Proof replacement comparison:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/37-ready-section-comparison.jpg`
+- Hero action removal comparison:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/38-hero-action-removal-comparison.jpg`
+- Booking metadata removal, desktop and mobile:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/39-booking-meta-removed-desktop.png`
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/40-booking-meta-removed-mobile.png`
+- Booking metadata before/after comparison:
+  `/Users/digimotion/.codex/visualizations/2026/07/27/019fa0f2-8a7c-7451-86ab-031378664da9/41-booking-meta-removal-comparison.jpg`
 
 ## Findings
 
 - Fonts and typography: Archivo, Inter, and JetBrains Mono load from local WOFF2 files. The heading scale, line lengths, and mono eyebrow system remain consistent at desktop and mobile sizes.
 - Spacing and layout rhythm: at 390 px, the visible gap between the scenario controls and phone is 58 px. The document width equals the viewport width, so there is no horizontal overflow.
 - Colors and tokens: navy, white, paper, muted gray, cyan, and rule colors are used consistently. Cyan is reserved for high-value actions and small accents.
-- Image quality: both worker images are 1536 × 1024 optimized JPEGs. The groomer is focused on the dog and the technician is focused on the engine; the ringing phones remain secondary.
-- Copy and content: the page now follows the supplied problem → process → included services → live proof → guarantee → FAQ → final CTA sequence. The founder section and its placeholder identity are absent.
-- Trust: the real VMA Management LLC accountability panel remains visible with the Miami address, phone, email, and service area. No testimonials, invented statistics, pricing claims, badges, or founder identity were added.
+- Image quality: the current page has no large photographic assets. The local VMA lockups and device status icons remain sharp and load without remote requests.
+- Copy and content: the page now follows problem → process → included services → ready-to-book → guarantee → FAQ. The Live Proof block, duplicate hero actions, founder placeholder, and visitor-facing em dashes are absent.
+- Trust: the footer retains VMA’s address, phone, growth email, and service area. No testimonials, badges, or founder identity were added.
 - Direct-file compatibility: local stylesheet, font, icon, image, manifest, script, logo, and legal-page references are relative and all referenced files exist.
 - Legal pages: copy remains intact. Only local asset and navigation paths changed so the pages continue to work when opened directly from disk.
 
@@ -70,12 +87,17 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
 - `aria-pressed` updates correctly for all three scenario controls.
 - The first scenario remains visible by default.
 - The first FAQ opens and exposes its answer.
+- The hero contains zero `.hero__actions`, one commercial-terms line beneath the phone, zero Live Proof sections, and one booking section.
+- At 1280 px the terms are 38 px beneath the phone and align to its 292 px width.
+- At 390 px the terms are 38 px beneath the phone, measure 298 px wide, and the document has no horizontal overflow.
 - Mobile document width equals the 390 px viewport and the sticky call bar renders as a two-action grid.
 - The desktop preview has no console errors.
 - `main.js` passes `node --check`.
-- `git diff --check` passes.
+- `git diff --check` reports only the previously supplied whitespace-only line in the Gemini booking fallback; no new whitespace errors were introduced by this iteration.
 - `README.md` and `BRIEF.md` remain unchanged.
 - Browser security prevents automated navigation to `file://` URLs, so direct-file compatibility was verified by path resolution rather than by bypassing that security boundary.
+- Website Lead activation updates `aria-pressed` and the conversation content correctly after the section move.
+- The booking fallback contains zero `.book__meta` elements, retains one contact-action group and one final terms line, and has no horizontal overflow at 1280 px or 390 px.
 
 ## Intentional implementation choices
 
@@ -86,8 +108,19 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
 
 ## Remaining launch verification
 
-- Confirm that the Live Proof statement—“the same number every VMA client uses” and “the actual product”—is factually accurate before publishing.
 - Replace the phone fallback on the booking CTA with a scheduling URL if a calendar link is preferred.
+
+## Gemini redesign targeted QA — 2026-07-27
+
+- Branch: `gemini-redesign-test`
+- The problem calculation is explicitly framed as a “could” scenario, labels the figures as an example, and asks prospects to run the scenario with their own numbers.
+- Problem step 03 no longer presents a specific job value as fact.
+- The fallback calendar badge and its pulse-dot CSS were removed.
+- The fallback telephone CTA now reads “Call to Book: (786) 926-8584,” accurately describing its `tel:` behavior.
+- The booking iframe remains fluid at `width: 100%` and now uses `height: min(700px, 80vh)` for mobile viewport containment.
+- The redundant booking metadata row and its reserved fallback height were removed; the card now closes around its call actions while the same commercial terms remain visible beneath the phone and the guarantee stays in its dedicated section.
+- `main.js` remains unchanged by these targeted edits.
+- Status: uncommitted pending approval.
 
 ## Comparison history
 
@@ -96,5 +129,9 @@ The approved Field-grade precision hero remains the visual anchor: white space, 
 3. P2: the earlier worker images looked toward the phone instead of staying engaged with the task. Fix: retained the focused-work images where the phone is clearly secondary.
 4. P2: the previous below-the-fold flow did not match the supplied conversion sequence. Fix: rebuilt the sections in the requested order and preserved the real accountability panel.
 5. P3: mobile lacked a persistent conversion action. Fix: added the two-button sticky bar without introducing overflow or a new dependency.
+6. P2: the Live Proof section repeated contact actions and an accountability card without adding enough conversion value. Fix: replaced it with the existing “Ready when you are” booking terminal and removed the former duplicate terminal.
+7. P2: the hero repeated its booking actions and left the commercial terms disconnected from the phone demonstration. Fix: removed the duplicate hero action row and placed the terms directly beneath the device at desktop and mobile widths.
+8. P3: repeated em dashes made the copy feel mechanically written. Fix: replaced visitor-facing em dashes with commas, periods, or natural sentence breaks.
+9. P3: the booking fallback repeated no-setup-fee, month-to-month, and guarantee details already presented elsewhere. Fix: removed the redundant metadata row, its unused CSS, and the empty height it left behind.
 
 final result: passed

@@ -12,7 +12,7 @@
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="VMA Management LLC">
+<meta property="og:site_name" content="VMA Management">
 <meta property="og:url" content="https://vmamgmt.com/">
 <meta property="og:title" content="Stop losing jobs to voicemail.">
 <meta property="og:description" content="We build, host, manage, and maintain your website, then help respond to every call, text, and form in seconds. Broward County and Miami-Dade.">
@@ -35,13 +35,13 @@
 <!-- Self-hosted fonts. No CDN, no Google Fonts link. -->
 <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20260727-7">
+<link rel="stylesheet" href="styles.css?v=20260727-8">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "VMA Management LLC",
+  "name": "VMA Management",
   "url": "https://vmamgmt.com/",
   "image": "https://vmamgmt.com/img/og.png",
   "logo": "https://vmamgmt.com/icon-512.png",
@@ -69,7 +69,6 @@
 
 <!-- ============================================================================
      1. HEADER  —  sticky, navy
-     Edit the phone number in BOTH places: the visible text and the tel: link.
      ========================================================================= -->
 <header class="hdr">
   <div class="wrap hdr__in">
@@ -97,18 +96,12 @@
     <div class="hero__copy">
       <p class="eyebrow">South Florida websites + lead response</p>
       <h1 class="hero__h1">Stop losing jobs to voicemail.</h1>
-      <p class="hero__sub">We build, host, manage, and maintain your website — then make sure every
+      <p class="hero__sub">We build, host, manage, and maintain your website, then make sure every
         call, text, and form gets answered in seconds, even while you're on a job. One flat monthly
         fee, nothing upfront.</p>
-      <div class="hero__actions">
-        <a class="btn btn--cyan btn--wide" href="#book">Book a 20-Minute Call</a>
-        <a class="hero__call" href="tel:+17869268584">Or call or text (786) 926-8584</a>
-      </div>
-      <!-- TERMS MENTION 1 of 3 -->
-      <p class="hero__terms">No setup fee · Month-to-month · Cancel any time · Live in 30 days or your money back.</p>
     </div>
 
-    <!-- INTERACTIVE EXAMPLE — three service outcomes, no client claims -->
+    <!-- INTERACTIVE EXAMPLE — phone demo with auto-cycle & typing indicator -->
     <div class="hero__demo demo" data-phone-demo>
       <div class="demo__layout">
         <div class="demo__tabs" role="group" aria-label="Choose a service outcome">
@@ -134,7 +127,7 @@
               <div class="phone__screen">
                 <div class="phone__status" aria-hidden="true">
                   <span class="phone__time">9:41</span>
-                  <span class="phone__island"></span>
+                  <span class="phone__island"><span class="phone__camera"></span></span>
                   <span class="phone__status-icons">
                     <img src="assets/ui/signal.svg" width="14" height="14" alt="">
                     <img src="assets/ui/wifi.svg" width="14" height="14" alt="">
@@ -143,103 +136,137 @@
                 </div>
 
                 <div class="phone__conversation" role="region" aria-label="Example service conversation">
-            <section class="phone__scenario is-active" data-scenario-panel="missed">
-              <header class="phone__title">
-                <span>Missed call recovery</span>
-                <small>Owner is on a job</small>
-              </header>
-              <div class="phone__event" data-step>
-                <b>Missed call</b>
-                <time>2:14 PM</time>
-              </div>
-              <p class="phone__message phone__message--sent" data-step>
-                Hi — sorry we missed your call. What can we help you with?
-              </p>
-              <p class="phone__message phone__message--received" data-step>
-                My AC is blowing warm. Can someone come out today?
-              </p>
-              <p class="phone__result" data-step>Lead captured · Owner notified</p>
-            </section>
+                  <div class="phone__typing" data-typing hidden aria-hidden="true">
+                    <span class="phone__typing-dot"></span>
+                    <span class="phone__typing-dot"></span>
+                    <span class="phone__typing-dot"></span>
+                  </div>
 
-            <section class="phone__scenario" data-scenario-panel="form" hidden>
-              <header class="phone__title">
-                <span>Website lead</span>
-                <small>Contact form submitted</small>
-              </header>
-              <div class="phone__event" data-step>
-                <b>New form lead</b>
-                <time>10:32 AM</time>
-              </div>
-              <p class="phone__message phone__message--sent" data-step>
-                Thanks for reaching out. What service do you need and what ZIP code are you in?
-              </p>
-              <p class="phone__message phone__message--received" data-step>
-                Brake repair. I'm in 33311 and need help this week.
-              </p>
-              <p class="phone__result" data-step>Details saved · Follow-up ready</p>
-            </section>
+                  <section class="phone__scenario is-active" data-scenario-panel="missed">
+                    <header class="phone__title">
+                      <span>Missed call recovery</span>
+                      <small>Owner is on a job</small>
+                    </header>
+                    <div class="phone__event" data-step>
+                      <b>Missed call</b>
+                      <time>2:14 PM</time>
+                    </div>
+                    <p class="phone__message phone__message--sent" data-step>
+                      Hi, sorry we missed your call. What can we help you with?
+                    </p>
+                    <p class="phone__message phone__message--received" data-step>
+                      My AC is blowing warm. Can someone come out today?
+                    </p>
+                    <p class="phone__result" data-step>Lead captured · Owner notified</p>
+                  </section>
 
-            <section class="phone__scenario" data-scenario-panel="review" hidden>
-              <header class="phone__title">
-                <span>Review request</span>
-                <small>Job marked complete</small>
-              </header>
-              <div class="phone__event" data-step>
-                <b>Service complete</b>
-                <time>4:48 PM</time>
-              </div>
-              <p class="phone__message phone__message--sent" data-step>
-                Thanks for choosing us today. Would you take a minute to leave a review?
-              </p>
-              <p class="phone__message phone__message--received" data-step>
-                Done — thank you for the quick help.
-              </p>
-              <p class="phone__result" data-step>Review link delivered</p>
-            </section>
+                  <section class="phone__scenario" data-scenario-panel="form" hidden>
+                    <header class="phone__title">
+                      <span>Website lead</span>
+                      <small>Contact form submitted</small>
+                    </header>
+                    <div class="phone__event" data-step>
+                      <b>New form lead</b>
+                      <time>10:32 AM</time>
+                    </div>
+                    <p class="phone__message phone__message--sent" data-step>
+                      Thanks for reaching out. What service do you need and what ZIP code are you in?
+                    </p>
+                    <p class="phone__message phone__message--received" data-step>
+                      Brake repair. I'm in 33311 and need help this week.
+                    </p>
+                    <p class="phone__result" data-step>Details saved · Follow-up ready</p>
+                  </section>
+
+                  <section class="phone__scenario" data-scenario-panel="review" hidden>
+                    <header class="phone__title">
+                      <span>Review request</span>
+                      <small>Job marked complete</small>
+                    </header>
+                    <div class="phone__event" data-step>
+                      <b>Service complete</b>
+                      <time>4:48 PM</time>
+                    </div>
+                    <p class="phone__message phone__message--sent" data-step>
+                      Thanks for choosing us today. Would you take a minute to leave a review?
+                    </p>
+                    <p class="phone__message phone__message--received" data-step>
+                      Done, thank you for the quick help.
+                    </p>
+                    <p class="phone__result" data-step>Review link delivered</p>
+                  </section>
                 </div>
                 <span class="phone__home" aria-hidden="true"></span>
               </div>
             </div>
           </figure>
-          </div>
         </div>
       </div>
+      <p class="hero__terms demo__terms">No setup fee · Month-to-month · Cancel any time · Live in 30 days or your money back.</p>
+    </div>
 
   </div>
 </section>
 
 <!-- ============================================================================
-     3. THE PROBLEM
+     3. THE PROBLEM  —  Non-stock structural breakdown & arithmetic card
      ========================================================================= -->
 <section class="sec sec--paper problem-section">
   <div class="wrap">
     <div class="section-intro problem__intro">
       <p class="eyebrow eyebrow--content">The problem</p>
-      <h2>Every unanswered call is a job with your name on it — until it isn't.</h2>
-      <p>When a customer can't reach you, they don't wait. They call the next result on Google. A missed call, an unanswered text, or a contact form nobody replies to for hours doesn't just lose a lead — it becomes a competitor's new customer, and you never even know it happened.</p>
-      <p class="problem__subline">That's true whether you're mid-job, on a ladder, or just have your hands full — because the problem isn't your work. It's what happens the second your phone can't be answered.</p>
+      <h2>Every unanswered call is a job with your name on it until it isn't.</h2>
+      <p>When a customer can't reach you, they don't wait. They call the next result on Google. A missed call or an unanswered text doesn't just lose a lead. It becomes a competitor's new customer, and you never even know it happened.</p>
     </div>
-    <div class="problem__visuals" aria-label="Realistic examples of service professionals unable to answer a ringing phone">
-      <figure class="problem__visual">
-        <img
-          src="img/dog-groomer-focused-work.jpg"
-          width="1536"
-          height="1024"
-          loading="lazy"
-          decoding="async"
-          alt="Dog groomer focused on safely grooming a dog while a nearby phone rings unanswered"
-        >
-      </figure>
-      <figure class="problem__visual">
-        <img
-          src="img/auto-repair-focused-work.jpg"
-          width="1536"
-          height="1024"
-          loading="lazy"
-          decoding="async"
-          alt="Auto repair technician focused on an engine repair while a nearby phone rings unanswered"
-        >
-      </figure>
+
+    <div class="problem__breakdown">
+      <div class="problem__chain">
+        <div class="problem__step">
+          <span class="problem__step-num">01</span>
+          <div class="problem__step-body">
+            <b>Phone Rings Mid-Job</b>
+            <p>You're on a roof, under a truck, or holding tools. The call goes straight to voicemail.</p>
+          </div>
+        </div>
+        <div class="problem__step">
+          <span class="problem__step-num">02</span>
+          <div class="problem__step-body">
+            <b>Customer Moves On</b>
+            <p>When the call goes unanswered, they may contact the next business listed on Google in Broward or Miami-Dade.</p>
+          </div>
+        </div>
+        <div class="problem__step">
+          <span class="problem__step-num">03</span>
+          <div class="problem__step-body">
+            <b>Competitor Gets Paid</b>
+            <p>You lose a job you never even knew was available.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="problem__math-card">
+        <div class="problem__math-header">
+          <span class="problem__math-badge">The Unseen Cost</span>
+          <h3>What could missed calls be costing you?</h3>
+        </div>
+        <div class="problem__math-grid">
+          <div class="problem__math-item">
+            <span class="problem__math-val">4</span>
+            <span class="problem__math-lbl">Miss just 4 calls a week</span>
+          </div>
+          <div class="problem__math-op" aria-hidden="true">×</div>
+          <div class="problem__math-item">
+            <span class="problem__math-val">$900</span>
+            <span class="problem__math-lbl">at a $900 average job</span>
+          </div>
+          <div class="problem__math-op" aria-hidden="true">=</div>
+          <div class="problem__math-item problem__math-item--total">
+            <span class="problem__math-val">$3,600</span>
+            <span class="problem__math-lbl">= $3,600 walking away monthly</span>
+          </div>
+        </div>
+        <p class="problem__math-note">Run it with your own numbers. Even one saved call a month usually covers the system.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -262,12 +289,12 @@
       <li>
         <span class="journey__num">02</span>
         <h3>Never Miss a Lead</h3>
-        <p>Every missed call, text, and website form gets an instant, automatic response — even if you're mid-job. Your phone tells you the second a lead comes in.</p>
+        <p>Every missed call, text, and website form gets an instant, automatic response, even if you're mid-job. Your phone tells you the second a lead comes in.</p>
       </li>
       <li>
         <span class="journey__num">03</span>
         <h3>Build Your Reputation</h3>
-        <p>Happy customers get asked for a Google review automatically — you don't have to remember to do it. Your reputation keeps climbing instead of standing still.</p>
+        <p>Happy customers get asked for a Google review automatically. You don't have to remember to do it. Your reputation keeps climbing instead of standing still.</p>
       </li>
     </ol>
   </div>
@@ -304,23 +331,32 @@
 </section>
 
 <!-- ============================================================================
-     6. LIVE PROOF
+     6. READY WHEN YOU ARE
      ========================================================================= -->
-<section class="sec live-proof">
-  <div class="wrap live-proof__grid">
-    <div class="section-intro">
-      <p class="eyebrow eyebrow--content">Don't take our word for it</p>
-      <h2>This isn't a mockup. Try it right now.</h2>
-      <p>Call or text (786) 926-8584 — the same number every VMA client uses — and watch what happens in real time. That's not a demo account. That's the actual product.</p>
-      <a class="btn btn--cyan live-proof__cta" href="tel:+17869268584">Call or Text (786) 926-8584</a>
+<section class="sec sec--navy final-cta" id="book">
+  <div class="wrap col">
+    <div class="book__terminal">
+      <div class="book__header">
+        <p class="eyebrow eyebrow--content">Ready when you are</p>
+        <h2>Stop losing jobs to a phone that doesn't answer.</h2>
+        <p class="book__sub">Book a 20-minute strategy call to see how missed-call recovery works on your own number.</p>
+      </div>
+
+      <div class="book__embed" data-booking-src="" data-booking-title="Book a 20-minute call with VMA Management">
+        <!-- Fallback mode when iframe src is empty -->
+        <div class="book__fallback">
+          <h3 class="book__fallback-title">Schedule Your 20-Minute Strategy Call</h3>
+          <p class="book__fallback-desc">We'll look at your business, test your phone number live, and show you exactly how missed-call text-back works for your trade in South Florida.</p>
+
+          <div class="book__contact">
+            <a class="btn btn--cyan" href="tel:+17869268584">Call to Book: (786) 926-8584</a>
+            <a class="book__text-link" href="sms:+17869268584">Or call or text (786) 926-8584</a>
+          </div>
+        </div>
+      </div>
+
+      <p class="final-cta__terms">No setup fee · Month-to-month · Cancel any time · Live in 30 days or full refund.</p>
     </div>
-    <address class="accountability">
-      <b>VMA Management LLC</b>
-      <span>1110 Brickell Ave, Suite 400K, Miami, FL 33131</span>
-      <span><a href="tel:+17869268584">(786) 926-8584</a></span>
-      <span><a href="mailto:growth@vmamgmt.com">growth@vmamgmt.com</a></span>
-      <span>Serving Broward County &amp; Miami-Dade</span>
-    </address>
   </div>
 </section>
 
@@ -350,8 +386,12 @@
     <h2>Straight answers.</h2>
     <div class="faq">
       <details>
+        <summary>What does it cost?</summary>
+        <div class="faq__a"><p>One flat monthly fee with no setup cost, month-to-month, cancel any time. We'll walk through the exact number on the call so you're not guessing at what fits your business.</p></div>
+      </details>
+      <details>
         <summary>Will this get me more leads?</summary>
-        <div class="faq__a"><p>We won't promise a lead count — nobody honestly can. What we guarantee is that you'll be easy to find, and no call, text, or form ever goes unanswered again.</p></div>
+        <div class="faq__a"><p>We won't promise a lead count. Nobody honestly can. What we guarantee is that you'll be easy to find, and no call, text, or form ever goes unanswered again.</p></div>
       </details>
       <details>
         <summary>How fast will this be live?</summary>
@@ -359,7 +399,7 @@
       </details>
       <details>
         <summary>I already have a website. Do I need this?</summary>
-        <div class="faq__a"><p>A lot of clients did too. The question isn't whether you have a website — it's whether it answers a missed call at 2pm on a Tuesday. Most don't.</p></div>
+        <div class="faq__a"><p>A lot of clients did too. The question isn't whether you have a website. It's whether it answers a missed call at 2pm on a Tuesday. Most don't.</p></div>
       </details>
       <details>
         <summary>Is there a contract?</summary>
@@ -373,23 +413,6 @@
   </div>
 </section>
 
-<!-- ============================================================================
-     9. FINAL CTA
-     ========================================================================= -->
-<section class="sec sec--navy final-cta" id="book">
-  <div class="wrap col">
-    <p class="eyebrow eyebrow--content">Ready when you are</p>
-    <h2>Stop losing jobs to a phone that doesn't answer.</h2>
-    <div class="book__embed" data-booking-src="" data-booking-title="Book a 20-minute call with VMA Management">
-      <div class="book__contact" aria-label="Contact VMA Management">
-        <a class="btn btn--cyan" href="tel:+17869268584">Book a 20-Minute Call</a>
-        <a class="book__text" href="sms:+17869268584">Or call or text (786) 926-8584</a>
-      </div>
-    </div>
-    <p class="final-cta__terms">No setup fee. Month-to-month. Cancel any time.</p>
-  </div>
-</section>
-
 </main>
 
 <!-- ============================================================================
@@ -398,9 +421,9 @@
 <footer class="ftr">
   <div class="wrap col">
     <img class="ftr__logo" src="assets/vma-lockup-light.webp" width="320" height="76" alt="VMA Management">
-    <p class="ftr__tagline">VMA Management — Websites &amp; Lead Response for South Florida Home Service &amp; Auto Businesses.</p>
+    <p class="ftr__tagline">VMA Management: Websites &amp; Lead Response for South Florida Home Service &amp; Auto Businesses.</p>
     <address class="ftr__nap">
-      <span class="ftr__name">VMA Management LLC</span>
+      <span class="ftr__name">VMA Management</span>
       <span>1110 Brickell Ave, Suite 400K, Miami, FL 33131</span>
       <span><a href="tel:+17869268584">(786) 926-8584</a></span>
       <span><a href="mailto:growth@vmamgmt.com">growth@vmamgmt.com</a></span>
@@ -410,7 +433,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
     </nav>
-    <p class="ftr__copy">© <span data-year>2026</span> VMA Management LLC. All rights reserved.</p>
+    <p class="ftr__copy">© <span data-year>2026</span> VMA Management. All rights reserved.</p>
   </div>
 </footer>
 
@@ -419,6 +442,6 @@
   <a class="mobile-actions__book" href="#book">Book a 20-Minute Call</a>
 </nav>
 
-<script src="main.js?v=20260727-7" defer></script>
+<script src="main.js?v=20260727-8" defer></script>
 </body>
 </html>
