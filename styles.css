@@ -707,24 +707,6 @@ ul, ol { padding: 0; list-style: none; }
   margin-top: 24px;
   width: 100%;
 }
-.book__text-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 48px;
-  color: var(--navy);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.final-cta__terms {
-  margin-top: 24px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, .8);
-  text-align: center;
-}
-
-.mobile-actions { display: none; }
-
 /* ==========================================================================
    11. FOOTER
    ========================================================================== */
@@ -835,27 +817,8 @@ ul, ol { padding: 0; list-style: none; }
   .hero__grid { gap: 72px; }
 }
 
-@media (max-width: 719px) {
-  body { padding-bottom: 76px; }
-  .mobile-actions {
-    position: fixed; z-index: 70;
-    right: 0; bottom: 0; left: 0;
-    display: grid; grid-template-columns: minmax(92px, .75fr) minmax(0, 1.7fr);
-    gap: 8px; padding: 10px 12px;
-    border-top: 1px solid var(--rule);
-    background: var(--white);
-  }
-  .mobile-actions a {
-    min-height: 52px; display: inline-flex; align-items: center; justify-content: center;
-    border-radius: var(--r); font-size: 14px; font-weight: 800; line-height: 1.2;
-    text-align: center; text-decoration: none;
-  }
-  .mobile-actions__call { border: 1px solid var(--navy); color: var(--navy); }
-  .mobile-actions__book { background: var(--cyan); color: var(--navy); }
-}
-
 /* ---------- Print --------------------------------------------------------- */
 @media print {
-  .hdr, .book__embed, .skip, .demo__tabs, .mobile-actions { display: none; }
+  .hdr, .book__embed, .skip, .demo__tabs { display: none; }
   body { font-size: 12pt; }
 }
