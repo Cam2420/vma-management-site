@@ -580,6 +580,32 @@ ul, ol { padding: 0; list-style: none; }
   line-height: 1.6;
 }
 
+/* Trades We Serve — static grid, no interaction */
+.trades__grid {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.trades__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 12px;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  text-align: center;
+}
+.trades__icon { width: 26px; height: 26px; color: var(--navy); flex: none; }
+.trades__tile span {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .live-proof__grid { display: grid; gap: 34px; }
 .live-proof__cta { margin-top: 28px; }
 .accountability {
@@ -621,6 +647,12 @@ ul, ol { padding: 0; list-style: none; }
 }
 
 .faq-section h2 { margin-bottom: 28px; }
+.faq__intro {
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
 .faq { border-top: 1px solid var(--rule); }
 .faq details { border-bottom: 1px solid var(--rule); }
 .faq summary {
@@ -708,6 +740,34 @@ ul, ol { padding: 0; list-style: none; }
   margin-top: 24px;
   width: 100%;
 }
+
+/* ==========================================================================
+   10. THE PROCESS  —  onboarding steps, kept independent from .journey__steps
+   so nothing here can affect the "How It Works" section above.
+   ========================================================================== */
+.process__steps {
+  display: grid;
+  margin-top: 36px;
+  border-top: 1px solid var(--rule);
+}
+.process__steps li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.process__steps h3 { font-size: 21px; font-weight: 700; }
+.process__steps h3 small {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--muted);
+}
+.process__steps p {
+  margin-top: 9px;
+  max-width: 42ch;
+  color: var(--muted);
+  font-size: 16px;
+}
+
 /* ==========================================================================
    11. FOOTER
    ========================================================================== */
@@ -756,6 +816,7 @@ ul, ol { padding: 0; list-style: none; }
   .problem__step { flex-direction: column; }
   .book__contact { flex-direction: row; align-items: center; }
   .book__contact .btn { width: auto; }
+  .trades__grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 860px) {
@@ -791,6 +852,13 @@ ul, ol { padding: 0; list-style: none; }
 
   .book__terminal { padding: 48px; }
   .ftr__nap { font-size: 16px; }
+
+  .trades__grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .trades__tile { padding: 26px 14px; }
+
+  .process__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .process__steps li { min-height: 220px; padding: 28px 30px 28px 0; }
+  .process__steps li + li { padding-left: 30px; border-left: 1px solid var(--rule); }
 }
 
 @media (min-width: 1080px) {
