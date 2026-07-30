@@ -385,6 +385,7 @@ ul, ol { padding: 0; list-style: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .demo.demo-ready [data-step] { opacity: 1; transform: none; transition: none; }
   .phone__typing-dot { animation: none; opacity: .8; }
   .phone__stage.depth-enabled .phone,
