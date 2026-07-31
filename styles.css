@@ -590,16 +590,21 @@ ul, ol { padding: 0; list-style: none; }
 .trades__tile {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 22px 12px;
   background: var(--white);
   border: 1px solid var(--rule);
   border-radius: var(--r);
+  overflow: hidden;
   text-align: center;
 }
-.trades__icon { width: 26px; height: 26px; color: var(--navy); flex: none; }
+.trades__photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--paper);
+}
 .trades__tile span {
+  padding: 10px 10px;
   font-family: var(--display);
   font-size: 14px;
   font-weight: 700;
@@ -854,7 +859,6 @@ ul, ol { padding: 0; list-style: none; }
   .ftr__nap { font-size: 16px; }
 
   .trades__grid { grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .trades__tile { padding: 26px 14px; }
 
   .process__steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .process__steps li { min-height: 220px; padding: 28px 30px 28px 0; }
