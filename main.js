@@ -1,6 +1,6 @@
 /* ==========================================================================
    VMA Management LLC — main.js
-   Responsive behavior, lazy booking embed, and interactive phone demo.
+   Responsive behavior, lazy booking embed, and interactive outcome demo.
    ========================================================================== */
 (function () {
   'use strict';
@@ -25,24 +25,20 @@
   }
 
   /* ---------------------------------------------------------------------
-     2. INTERACTIVE PHONE DEMO & MICRO-INTERACTIONS
-     Features typing indicator sequence, scenario switching, and auto-cycling.
+     2. INTERACTIVE OUTCOME DEMO
+     Switches between Get Found, Get Chosen, and Get Booked examples.
      --------------------------------------------------------------------- */
-  var demo = document.querySelector('[data-phone-demo]');
+  var demo = document.querySelector('[data-outcome-demo]');
   if (demo) {
-    var tabs = demo.querySelectorAll('[data-scenario-tab]');
-    var panels = demo.querySelectorAll('[data-scenario-panel]');
-    var depthStage = demo.querySelector('[data-depth-stage]');
-    var typing = demo.querySelector('[data-typing]');
+    var tabs = demo.querySelectorAll('[data-outcome-tab]');
+    var panels = demo.querySelectorAll('[data-outcome-panel]');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-    var scenarios = ['missed', 'form', 'review'];
-    var currentScenario = 'missed';
+    var outcomes = ['found', 'chosen', 'booked'];
+    var currentOutcome = 'found';
     var timers = [];
     var autoCycleInterval = null;
     var userInteracting = false;
-    var observer = null;
 
     var clearTimers = function () {
       timers.forEach(function (timer) { window.clearTimeout(timer); });
@@ -52,7 +48,7 @@
     var findPanel = function (name) {
       var match = null;
       Array.prototype.forEach.call(panels, function (panel) {
-        if (panel.getAttribute('data-scenario-panel') === name) match = panel;
+        if (panel.getAttribute('data-outcome-panel') === name) match = panel;
       });
       return match;
     };
@@ -60,8 +56,6 @@
     var revealSteps = function (panel, animate) {
       clearTimers();
       var steps = panel.querySelectorAll('[data-step]');
-
-      if (typing) typing.hidden = true;
 
       Array.prototype.forEach.call(steps, function (step) {
         step.classList.remove('is-visible');
@@ -74,38 +68,21 @@
         return;
       }
 
-      var delay = 100;
+      var delay = 80;
       Array.prototype.forEach.call(steps, function (step, index) {
-        if (index === 1 && typing) {
-          // Show typing indicator before revealing sent response bubble
-          timers.push(window.setTimeout(function () {
-            typing.hidden = false;
-          }, delay));
-
-          delay += 550;
-
-          timers.push(window.setTimeout(function () {
-            typing.hidden = true;
-            step.classList.add('is-visible');
-          }, delay));
-
-          delay += 450;
-        } else {
-          timers.push(window.setTimeout(function () {
-            step.classList.add('is-visible');
-          }, delay));
-          delay += (index === 0 ? 250 : 450);
-        }
+        timers.push(window.setTimeout(function () {
+          step.classList.add('is-visible');
+        }, delay + (index * 170)));
       });
     };
 
-    var activateScenario = function (name, animate) {
+    var activateOutcome = function (name, animate) {
       var activePanel = findPanel(name);
       if (!activePanel) return;
 
-      currentScenario = name;
+      currentOutcome = name;
       Array.prototype.forEach.call(tabs, function (tab) {
-        var active = tab.getAttribute('data-scenario-tab') === name;
+        var active = tab.getAttribute('data-outcome-tab') === name;
         tab.classList.toggle('is-active', active);
         tab.setAttribute('aria-pressed', active ? 'true' : 'false');
       });
@@ -122,10 +99,10 @@
     var startAutoCycle = function () {
       if (autoCycleInterval || reducedMotion.matches || userInteracting) return;
       autoCycleInterval = window.setInterval(function () {
-        var currentIndex = scenarios.indexOf(currentScenario);
-        var nextIndex = (currentIndex + 1) % scenarios.length;
-        activateScenario(scenarios[nextIndex], true);
-      }, 4500);
+        var currentIndex = outcomes.indexOf(currentOutcome);
+        var nextIndex = (currentIndex + 1) % outcomes.length;
+        activateOutcome(outcomes[nextIndex], true);
+      }, 6000);
     };
 
     var stopAutoCycle = function () {
@@ -145,24 +122,22 @@
       startAutoCycle();
     });
 
-    demo.classList.add('demo-ready');
-    activateScenario(currentScenario, false);
+    demo.classList.add('is-ready');
+    activateOutcome(currentOutcome, false);
 
     Array.prototype.forEach.call(tabs, function (tab) {
       tab.addEventListener('click', function () {
         userInteracting = true;
         stopAutoCycle();
-        if (depthStage) depthStage.classList.add('is-depth-visible');
-        activateScenario(tab.getAttribute('data-scenario-tab'), true);
+        activateOutcome(tab.getAttribute('data-outcome-tab'), true);
       });
     });
 
-    // Intersection observer for entrance animation & auto-cycle start
+    // Animate only when the demo enters the viewport.
     if ('IntersectionObserver' in window) {
-      observer = new IntersectionObserver(function (entries) {
+      var observer = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-          if (depthStage) depthStage.classList.add('is-depth-visible');
-          activateScenario(currentScenario, !reducedMotion.matches);
+          activateOutcome(currentOutcome, !reducedMotion.matches);
           startAutoCycle();
         } else {
           stopAutoCycle();
@@ -170,7 +145,7 @@
       }, { threshold: 0.15 });
       observer.observe(demo);
     } else {
-      if (depthStage) depthStage.classList.add('is-depth-visible');
+      activateOutcome(currentOutcome, false);
       startAutoCycle();
     }
   }
