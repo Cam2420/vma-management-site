@@ -895,3 +895,146 @@ ul, ol { padding: 0; list-style: none; }
   .hdr, .book__embed, .skip, .demo__tabs { display: none; }
   body { font-size: 12pt; }
 }
+/* ==========================================================================
+   VMA LAYOUT & RESPONSIVENESS FIXES 
+   ========================================================================== */
+
+/* 1. Global Box Sizing & Horizontal Scroll Fix */
+html {
+  box-sizing: border-box;
+  scroll-padding-top: 110px; /* Prevents anchor links from hiding under header */
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  overflow-x: hidden;
+  padding-top: 90px; /* Clears the sticky header */
+}
+.hdr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+/* 2. Consistent Whitespace & Visual Hierarchy */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+.sec {
+  padding: 4rem 0;
+}
+@media (min-width: 768px) {
+  .sec {
+    padding: 6rem 0;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 3. FOUND -> CHOSEN -> BOOKED Growth System Card */
+.problem__math-card {
+  padding: 2rem 1.5rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+  width: 100%;
+}
+.problem__math-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.problem__math-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 280px;
+}
+.problem__math-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.problem__math-lbl {
+  font-size: 1rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+.problem__math-op {
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+/* Mobile: Stack items vertically, arrows point down */
+@media (max-width: 767px) {
+  .problem__math-op {
+    transform: rotate(90deg);
+  }
+}
+
+/* Desktop: Expand items horizontally, arrows point right */
+@media (min-width: 768px) {
+  .problem__math-card {
+    padding: 3rem;
+  }
+  .problem__math-grid {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .problem__math-item {
+    flex: 1;
+    padding: 0 1rem;
+  }
+  .problem__math-op {
+    transform: rotate(0deg);
+    margin-top: 0.25rem;
+  }
+}
+
+/* 4. WHO WE WORK WITH (Trades Grid) */
+.trades__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 3rem 0 0 0;
+}
+.trades__tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.trades__photo {
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .trades__grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .trades__grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    gap: 2rem;
+  }
+}
