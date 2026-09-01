@@ -4,25 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  
-<title>Free Online Presence Audit | VMA Management</title>
-<meta name="description" content="Free 60-second audit checks your Google Business Profile, website, reviews, and 13+ directory listings — see exactly where your South Florida service business is invisible, wrong, or losing jobs to competitors online.">
+<title>4 Reasons Local Customers Are Calling Your Competitors | VMA Management</title>
+<meta name="description" content="Discover the invisible leaks in your online presence that are costing your South Florida service business jobs, and how to fix them.">
 <link rel="canonical" href="https://vmamgmt.com/audit">
 <meta name="theme-color" content="#082963">
  
 <!-- Open Graph / Twitter -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="VMA Management">
 <meta property="og:url" content="https://vmamgmt.com/audit">
-<meta property="og:title" content="Free Online Presence Audit — VMA Management">
-<meta property="og:description" content="See exactly where your business is invisible, wrong, or losing jobs to competitors online. Free 60-second scan across Google, your website, reviews, and 13+ directories.">
+<meta property="og:title" content="4 Reasons Local Customers Are Calling Your Competitors (Even When You Do Better Work)">
+<meta property="og:description" content="Discover the invisible leaks costing your South Florida service business jobs, and how to run a free diagnostic scan to fix them.">
 <meta property="og:image" content="https://vmamgmt.com/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="VMA Management">
  
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Online Presence Audit — VMA Management">
-<meta name="twitter:description" content="Free 60-second scan across Google, your website, reviews, and 13+ directories.">
+<meta name="twitter:title" content="4 Reasons Local Customers Are Calling Your Competitors">
+<meta name="twitter:description" content="Discover the invisible leaks costing your South Florida service business jobs.">
 <meta name="twitter:image" content="https://vmamgmt.com/img/og.png">
  
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
@@ -31,424 +31,285 @@
 <link rel="icon" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
  
-<link rel="stylesheet" href="../styles.css?v=20260820-1">
+<link rel="stylesheet" href="../styles.css?v=20260831-listicle">
  
 <style>
   /* ==========================================================================
-     Audit Page - Clean, High-Converting Refined Styles
+     Listicle Funnel Styles - Editorial, Trustworthy, Text-Heavy
      ========================================================================== */
-  html { scroll-behavior: smooth; }
-  
-  /* Animations */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+  html { scroll-behavior: smooth; background: var(--paper); }
+  body { background: var(--paper); } /* Subdued background for the whole page */
+
+  /* Distraction-Free Header */
+  .hdr { background: var(--navy); padding: 16px 0; text-align: center; }
+  .hdr__logo { display: inline-block; }
+  .hdr__logo img { height: 32px; width: auto; }
+
+  /* Main Article Container */
+  .article-container {
+    max-width: 800px;
+    margin: 40px auto 60px;
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: var(--r);
+    box-shadow: 0 4px 12px rgba(8, 41, 99, 0.04);
+    overflow: hidden;
   }
 
-  /* Hero Layout & Typography Fixes */
-  .aud-hero { 
-    padding: 56px 0 72px; 
-    background: var(--paper); 
+  /* Article Header */
+  .article-header {
+    padding: 48px 40px 32px;
     border-bottom: 1px solid var(--rule);
   }
-  .aud-hero__in { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 48px; 
-    align-items: start; 
-  }
-  .aud-eyebrow { 
+  .article-eyebrow {
     display: inline-block;
-    font-family: var(--mono); 
-    font-size: 12px; 
-    font-weight: 700; 
-    letter-spacing: .08em; 
-    text-transform: uppercase; 
-    color: var(--navy); 
-    background: rgba(8, 41, 99, 0.06);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    background: var(--navy);
     padding: 6px 12px;
-    border-radius: var(--r);
-    margin: 0 0 18px; 
+    border-radius: 4px;
+    margin-bottom: 24px;
   }
-  .aud-hero h1 { 
-    font-size: clamp(28px, 3.2vw, 40px); 
-    color: var(--navy); 
-    margin-bottom: 18px; 
+  .article-header h1 {
+    font-size: clamp(32px, 5vw, 44px);
+    color: var(--navy);
     line-height: 1.15;
     font-weight: 800;
     letter-spacing: -0.02em;
-  }
-  .aud-sub { 
-    font-family: var(--body); 
-    font-size: 17px; 
-    line-height: 1.6; 
-    color: var(--muted); 
-    max-width: 50ch; 
-    margin: 0; 
+    margin-bottom: 24px;
   }
   
-  /* Native-Feeling Widget Container */
-  .aud-hero__widget {
-    background: var(--white);
-    padding: 24px;
+  /* Byline */
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .byline__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--rule);
+    border: 2px solid var(--paper);
+    object-fit: cover;
+  }
+  .byline__info strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .byline__info span {
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* Article Body Content */
+  .article-content {
+    padding: 40px;
+  }
+  .article-content p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  .article-content h2 {
+    font-size: 28px;
+    color: var(--navy);
+    margin: 48px 0 20px;
+    font-weight: 800;
+  }
+  .article-content h3 {
+    font-size: 22px;
+    color: var(--navy);
+    margin: 32px 0 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .article-content h3 span {
+    color: var(--cyan);
+    background: var(--navy);
+    font-family: var(--mono);
+    font-size: 14px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transform: translateY(-2px);
+  }
+  .article-content strong {
+    font-weight: 700;
+  }
+  .article-content blockquote {
+    margin: 32px 0;
+    padding: 24px 32px;
+    background: var(--paper);
+    border-left: 4px solid var(--navy);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--muted);
+  }
+
+  /* Editorial Images */
+  .article-img {
+    width: 100%;
+    height: auto;
     border-radius: var(--r);
+    margin: 40px 0;
+    border: 1px solid var(--rule);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  /* The Pivot (Widget Wrapper) */
+  .widget-wrapper {
+    margin: 56px -40px -40px;
+    padding: 48px 40px;
+    background: var(--paper);
+    border-top: 4px solid var(--cyan);
+  }
+  .widget-wrapper h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 32px;
+  }
+  .widget-wrapper p.lead-in {
+    text-align: center;
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  
+  /* Widget Box Polish */
+  .ghl-embed-container {
+    background: var(--white);
+    border-radius: 12px;
     box-shadow: 0 12px 32px rgba(8, 41, 99, 0.08);
     border: 1px solid var(--rule);
-    position: relative;
-    overflow: hidden;
+    padding: 24px;
+    max-width: 600px;
+    margin: 0 auto;
   }
-  .aud-hero__widget iframe {
+  .ghl-embed-container iframe {
     width: 100% !important;
     border: none !important;
   }
-  .aud-micro { 
-    margin-top: 14px; 
-    font-size: 13px; 
-    color: var(--muted); 
+  .anti-scam-badge {
     text-align: center;
-    font-weight: 500;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .aud-hero__copy { animation: fadeUp 0.5s ease-out both; }
-    .aud-hero__widget { animation: fadeUp 0.5s ease-out 0.1s both; }
-  }
-
-  /* General Content Sections */
-  .aud-section { padding: 72px 0; }
-  .aud-section--paper { 
-    background: var(--paper); 
-    border-top: 1px solid var(--rule); 
-    border-bottom: 1px solid var(--rule); 
-  }
-  .aud-section h2 { 
-    font-size: clamp(26px, 3.5vw, 34px); 
-    color: var(--navy); 
-    margin-bottom: 32px; 
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-  .aud-narrow { max-width: var(--col); margin: 0 auto; }
-  
-  /* Features Grid with Subtle Hover Effects */
-  .aud-grid { 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 20px; 
-  }
-  .aud-grid li { 
-    background: var(--white); 
-    border: 1px solid var(--rule); 
-    border-radius: var(--r); 
-    padding: 22px; 
-    font-family: var(--body); 
-    font-size: 15px; 
-    line-height: 1.55; 
+    font-size: 14px;
     color: var(--muted);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  .aud-grid li:hover {
-    border-color: var(--navy);
-    box-shadow: 0 6px 16px rgba(8, 41, 99, 0.05);
-  }
-  .aud-grid__icon {
-    width: 42px;
-    height: 42px;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: var(--r);
+    margin-top: 24px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    color: var(--navy);
-    margin-bottom: 14px;
+    gap: 8px;
   }
-  .aud-grid__icon svg { width: 22px; height: 22px; stroke-width: 1.75px; }
-  .aud-grid li strong { 
-    display: block; 
-    color: var(--navy); 
-    font-family: var(--display); 
-    font-size: 17px; 
-    margin-bottom: 6px; 
+  .anti-scam-badge svg {
+    width: 20px;
+    height: 20px;
+    color: var(--navy);
   }
 
-  /* Process Steps Timeline */
-  .aud-steps { 
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
-    display: grid; 
-    gap: 24px; 
-    max-width: var(--col); 
-    position: relative;
-  }
-  .aud-steps::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    bottom: 20px;
-    width: 2px;
-    background: var(--rule);
-    z-index: 0;
-  }
-  .aud-steps li { 
-    display: flex; 
-    align-items: flex-start; 
-    gap: 20px; 
-    font-family: var(--body); 
-    font-size: 17px; 
-    color: var(--navy); 
-    position: relative;
-    z-index: 1;
-    line-height: 1.5;
-    font-weight: 500;
-  }
-  .aud-steps__num { 
-    flex: none; 
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    background: var(--navy); 
-    color: var(--white); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-family: var(--display); 
-    font-weight: 700; 
-    font-size: 16px;
-    box-shadow: 0 0 0 6px var(--paper);
-  }
-  .aud-steps__text { padding-top: 8px; }
-  
-  /* Disclaimer Box */
-  .aud-disclaimer p {
-    font-size: 17px;
-    line-height: 1.65;
-    color: var(--muted);
-    border-left: 4px solid var(--navy);
-    padding-left: 20px;
-    margin: 0;
-  }
-
-  /* Interactive Clean FAQ Accordion */
-  .aud-faq { border-top: 1px solid var(--rule); }
-  .aud-faq details { 
-    border-bottom: 1px solid var(--rule); 
-  }
-  .aud-faq summary { 
-    padding: 20px 0;
-    font-family: var(--display); 
-    font-size: 17px; 
-    color: var(--navy); 
-    font-weight: 700;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-  .aud-faq summary:hover { color: var(--navy); }
-  .aud-faq summary::-webkit-details-marker { display: none; }
-  .aud-faq summary::after {
-    content: "+";
-    color: var(--navy);
-    font-size: 22px;
-    font-weight: 400;
-    transition: transform 0.2s ease;
-  }
-  .aud-faq details[open] summary::after { transform: rotate(45deg); }
-  .aud-faq p { 
-    margin: 0 0 20px 0; 
-    font-family: var(--body); 
-    font-size: 15px; 
-    line-height: 1.6;
-    color: var(--muted); 
-    max-width: 60ch;
-  }
-  
-  /* Final Bottom CTA */
-  .aud-cta { 
-    background: var(--navy); 
-    text-align: center; 
-    padding: 72px 0;
-  }
-  .aud-cta h2 { color: var(--white); margin-bottom: 12px; }
-  .aud-cta p { color: var(--rule); margin: 0 0 28px; font-size: 17px; }
-  
   /* Responsive Adjustments */
-  @media (max-width: 860px) {
-    .aud-hero { padding: 40px 0 48px; }
-    .aud-hero__in { grid-template-columns: 1fr; gap: 36px; }
-    .aud-hero h1 { max-width: 100%; }
-    .aud-hero__widget { padding: 18px 14px; }
-    .aud-section { padding: 48px 0; }
-    .aud-steps::before { left: 19px; }
-    .aud-steps__num { width: 38px; height: 38px; font-size: 15px; }
+  @media (max-width: 768px) {
+    .article-container { margin: 24px 16px; }
+    .article-header { padding: 32px 24px 24px; }
+    .article-content { padding: 32px 24px; }
+    .article-content p { font-size: 17px; }
+    .article-content h2 { font-size: 24px; }
+    .widget-wrapper { margin: 40px -24px -32px; padding: 40px 24px; }
   }
 </style>
 </head>
 <body>
  
+<!-- Clean Header: No Escape Routes -->
 <header class="hdr">
-  <div class="wrap hdr__in">
-    <a class="hdr__logo" href="../index.html" aria-label="VMA Management — home">
-      <img src="../assets/vma-lockup-navy.webp" width="371" height="88" alt="VMA Management">
-    </a>
-    <a class="hdr__tel" href="tel:+17869268584">
-      <svg class="hdr__tel-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-        <path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 8.4 8.4 0 0 0 2.7.43 1 1 0 0 1 1 1V19a1 1 0 0 1-1 1A16 16 0 0 1 3 4a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 1 8.4 8.4 0 0 0 .43 2.7 1 1 0 0 1-.24 1z"/>
-      </svg>
-      <span>(786)&nbsp;926-8584</span>
-    </a>
-    <a class="btn btn--cyan hdr__btn" href="#get-audit">
-      Start Free Scan
-    </a>
-  </div>
+  <a class="hdr__logo" href="../index.html" aria-label="VMA Management — home">
+    <img src="../assets/vma-lockup-light.webp" width="371" height="88" alt="VMA Management">
+  </a>
 </header>
  
 <main>
- 
-  <section class="aud-hero">
-    <div class="wrap aud-hero__in">
-      <div class="aud-hero__copy">
-        <p class="aud-eyebrow">Free Online Presence Audit — South Florida</p>
-        <h1>Find Out Exactly Where Your Business Is Invisible, Wrong, or Losing Jobs to Competitors Online</h1>
-        <p class="aud-sub">One free scan checks your Google Business Profile, your website, your reviews, and 13+ directory listings — then texts you the full report in under 60 seconds. No credit card. No sales call required to see your score.</p>
+  <article class="article-container">
+    
+    <header class="article-header">
+      <span class="article-eyebrow">Local Growth Analysis</span>
+      <h1>4 Reasons Local Customers Are Calling Your Competitors (Even When You Do Better Work)</h1>
+      
+      <div class="byline">
+        <!-- Using a placeholder for your headshot, replace with actual photo if you have one in assets -->
+        <img src="../assets/trades/general-contractors.jpg" alt="Cameron Evans" class="byline__avatar">
+        <div class="byline__info">
+          <strong>Cameron Evans</strong>
+          <span>Founder, VMA Management • South Florida</span>
+        </div>
       </div>
-      <div class="aud-hero__widget" id="get-audit">
-        <script src="https://services.leadconnectorhq.com/prospecting/client/widget-embed.js" data-widget-id="6a9622e5a4f96313e71beee6"></script>
-        <p class="aud-micro">Takes less time than it took to read this page.</p>
+    </header>
+
+    <div class="article-content">
+      <p>If you own an HVAC, plumbing, roofing, or electrical business in South Florida, your phone probably rings nonstop. The problem? It’s not customers calling. It’s marketing agencies promising you the moon.</p>
+      
+      <p>They sell you shared leads from directories, try to trap you in 12-month SEO retainers, and use buzzwords that don't put trucks in driveways. But while you’re busy dodging their sales calls, you might be missing the real reasons your <em>actual</em> local customers are slipping through the cracks.</p>
+
+      <blockquote>"You don't need to buy shared leads. You just need to stop losing the leads that are already looking for you."</blockquote>
+
+      <p>Before you spend another dollar on ads or shared lead platforms, you need to plug the leaks in your own foundation. Here are the four invisible reasons you are losing jobs to competitors down the street.</p>
+
+      <img src="../assets/trades/hvac.jpg" alt="HVAC technician inspecting an outdoor unit" class="article-img">
+
+      <h3><span>Leak #1</span> The Ghost Town Google Profile</h3>
+      <p>When a homeowner's AC breaks in July, they don't scroll to page 3 of Google. They look at the top three maps results. If your Google Business Profile hasn't been updated with new photos of your wrapped trucks in 2 years, or if your operating hours are listed incorrectly, Google's algorithm pushes you down.</p>
+      <p>Even worse, if your profile isn't verified or looks abandoned, the homeowner assumes you might be out of business and calls the next guy.</p>
+
+      <h3><span>Leak #2</span> The "Trust Check" Failure</h3>
+      <p>Word of mouth gets your name in a customer's ear, but <strong>90% of homeowners will still Google your business to check your reviews before they actually call.</strong></p>
+      <p>If your last 5-star review was left 8 months ago, or worse, if there is a 1-star review sitting there with no reply from the owner, you lose the trust check. Customers will bypass a great contractor for an average one just because the average guy had 15 recent reviews.</p>
+
+      <h3><span>Leak #3</span> The 6-Second Bounce</h3>
+      <p>Most local searches happen on cell phones while the customer is stressed (a leak, a broken breaker, a damaged roof). They tap your website link. If your site takes more than 5 or 6 seconds to load, or if they have to pinch and zoom to find your phone number, they hit the "back" button.</p>
+      <p>In local service, a slow or broken mobile website loses the job before the phone even has a chance to ring.</p>
+
+      <img src="../assets/trades/plumbing.jpg" alt="Plumber installing pipe fittings" class="article-img">
+
+      <h3><span>Leak #4</span> The Voicemail Black Hole</h3>
+      <p>You’re under a sink, up on a ladder, or driving between quotes. A new lead calls, and it goes straight to voicemail. Here is the harsh reality of 2026: <strong>People do not leave voicemails anymore.</strong></p>
+      <p>If a customer cannot reach a human or doesn't get an immediate text message back acknowledging their call, they simply dial the next business on the list. You lose a $1,500 job and never even knew they called.</p>
+
+      <!-- The Pivot to the Widget -->
+      <div class="widget-wrapper" id="get-audit">
+        <h2>How to Find Your Leaks (Without Paying an Agency)</h2>
+        <p class="lead-in">You can spend five hours manually checking your Google maps rankings, site speed, review reply rates, and 13+ directory listings... or you can run a <strong>free diagnostic scan</strong> right now.</p>
+        
+        <div class="ghl-embed-container">
+          <!-- CORE GHL WIDGET SCRIPT - DO NOT MODIFY -->
+          <script src="https://services.leadconnectorhq.com/prospecting/client/widget-embed.js" data-widget-id="6a9622e5a4f96313e71beee6"></script>
+        </div>
+
+        <div class="anti-scam-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span><strong>We're not selling your data.</strong> The audit costs nothing, comes with no contract, and generates your score in 60 seconds. What you do with the report is entirely up to you.</span>
+        </div>
       </div>
+
     </div>
-  </section>
- 
-  <section class="aud-section">
-    <div class="wrap">
-      <h2>Your free audit checks</h2>
-      <ul class="aud-grid">
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          </div>
-          <strong>Business Details</strong> 
-          Is your chat widget live, is your number text-enabled, are you replying to reviews
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-          </div>
-          <strong>Website &amp; Tech</strong> 
-          Is your site actually reachable and fast enough to keep visitors
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <strong>Google Business Profile</strong> 
-          Is your address, hours, phone, and photos verified and accurate
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-          </div>
-          <strong>13+ Directory Listings</strong> 
-          Google, Facebook, Yelp, Mapquest, and more, checked for match or mismatch
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <strong>Online Reputation</strong> 
-          Your real star rating and review reply rate on Google and Facebook
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <strong>Website Performance</strong> 
-          How fast your site loads — a slow site loses jobs before the phone even rings
-        </li>
-        <li>
-          <div class="aud-grid__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <strong>Local SEO Heatmap</strong> 
-          Where you actually rank around your service area, block by block
-        </li>
-      </ul>
-    </div>
-  </section>
- 
-  <section class="aud-section aud-section--paper">
-    <div class="wrap aud-narrow">
-      <h2>How it works</h2>
-      <ol class="aud-steps">
-        <li>
-          <span class="aud-steps__num">1</span> 
-          <div class="aud-steps__text">Enter your business name — 15 seconds</div>
-        </li>
-        <li>
-          <span class="aud-steps__num">2</span> 
-          <div class="aud-steps__text">We scan 13+ places your customers already look for you — 60 seconds</div>
-        </li>
-        <li>
-          <span class="aud-steps__num">3</span> 
-          <div class="aud-steps__text">You get a text and an email with your full score and a plain-English list of what to fix first</div>
-        </li>
-      </ol>
-    </div>
-  </section>
- 
-  <section class="aud-section aud-disclaimer">
-    <div class="wrap aud-narrow">
-      <h2>We're not selling you leads.</h2>
-      <p>If you've bought leads from Angi, HomeAdvisor, or an "SEO guy" before, you already know how that goes — shared leads, dead numbers, no way to prove any of it worked. This isn't that. The audit costs nothing and comes with no contract. We show you exactly what's broken. What you do with it — fix it yourself, hand it to us, or ignore it — is up to you.</p>
-    </div>
-  </section>
- 
-  <section class="aud-section aud-section--paper">
-    <div class="wrap aud-narrow">
-      <h2>Questions</h2>
-      <div class="aud-faq">
-        <details>
-          <summary>How is this different from Angi or every other agency that's called me?</summary>
-          <p>We don't sell your info to five other contractors. This is your business, checked once, and the report is yours to keep.</p>
-        </details>
-        <details>
-          <summary>I don't have time to learn another dashboard.</summary>
-          <p>You don't log into anything. You get a text and an email. That's it.</p>
-        </details>
-        <details>
-          <summary>I'm already booked out on word-of-mouth.</summary>
-          <p>Good — then this costs you nothing to find out if your online presence is quietly capping how big "booked out" could be.</p>
-        </details>
-        <details>
-          <summary>Prove it, don't just tell me.</summary>
-          <p>That's the whole point of the audit — it's your numbers, not our claims.</p>
-        </details>
-      </div>
-    </div>
-  </section>
- 
-  <section class="aud-section aud-cta">
-    <div class="wrap aud-narrow">
-      <h2>See your score. Free. 60 seconds.</h2>
-      <p>No credit card. No sales call required.</p>
-      <a class="btn btn--cyan" href="#get-audit">Start My Free Audit</a>
-    </div>
-  </section>
- 
+  </article>
 </main>
  
 <footer class="ftr">
   <div class="wrap col">
     <img class="ftr__logo" src="../assets/vma-lockup-light.webp" width="320" height="76" alt="VMA Management">
-    <p class="ftr__tagline">VMA Management: Partnering with South Florida service businesses to get found, get chosen, and get booked.</p>
+    <p class="ftr__tagline">VMA Management: Partnering with South Florida service businesses to plug the leaks and capture more jobs.</p>
     <address class="ftr__nap">
       <span>Email us at <a href="mailto:growth@vmamgmt.com">growth@vmamgmt.com</a></span>
       <span>Serving Broward County &amp; Miami-Dade</span>
