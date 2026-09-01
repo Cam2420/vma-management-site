@@ -34,40 +34,264 @@
 <link rel="stylesheet" href="../styles.css?v=20260820-1">
  
 <style>
+  /* ==========================================================================
+     Audit Page Specific Styles - Enhanced UX & Layout
+     ========================================================================== */
   html { scroll-behavior: smooth; }
- 
-  .aud-hero { padding: 56px 0 64px; background: var(--paper); }
-  .aud-hero__in { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: start; }
-  .aud-eyebrow { font-family: var(--body); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
-  .aud-hero h1 { font-size: clamp(30px, 4vw, 44px); color: var(--navy); margin-bottom: 18px; }
-  .aud-sub { font-family: var(--body); font-size: 18px; line-height: 1.55; color: var(--muted); max-width: 52ch; margin: 0; }
-  .aud-micro { margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; }
- 
-  .aud-section { padding: 56px 0; }
-  .aud-section--paper { background: var(--paper); }
-  .aud-section h2 { font-size: clamp(24px, 3vw, 32px); color: var(--navy); margin-bottom: 24px; }
-  .aud-narrow { max-width: var(--col); margin: 0 auto; }
- 
-  .aud-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .aud-grid li { background: var(--white); border: 1px solid var(--rule); border-radius: var(--r); padding: 18px 20px; font-family: var(--body); font-size: 15px; line-height: 1.5; color: var(--muted); }
-  .aud-grid li strong { display: block; color: var(--navy); font-family: var(--display); font-size: 16px; margin-bottom: 4px; }
- 
-  .aud-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; max-width: var(--col); }
-  .aud-steps li { display: flex; align-items: center; gap: 16px; font-family: var(--body); font-size: 17px; color: var(--navy); }
-  .aud-steps__num { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: var(--white); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 700; }
- 
-  .aud-faq__item { padding: 18px 0; border-bottom: 1px solid var(--rule); }
-  .aud-faq__item:last-child { border-bottom: 0; }
-  .aud-faq__q { font-family: var(--display); font-size: 17px; color: var(--navy); margin: 0 0 6px; }
-  .aud-faq__a { font-family: var(--body); font-size: 15px; color: var(--muted); margin: 0; }
- 
-  .aud-cta { background: var(--navy); text-align: center; }
-  .aud-cta h2 { color: var(--white); }
-  .aud-cta p { color: var(--rule); margin: 0 0 24px; }
- 
+  
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hero Section */
+  .aud-hero { 
+    padding: 72px 0 88px; 
+    background: var(--paper); 
+    border-bottom: 1px solid var(--rule);
+  }
+  .aud-hero__in { 
+    display: grid; 
+    grid-template-columns: 1.1fr 0.9fr; 
+    gap: 64px; 
+    align-items: center; 
+  }
+  .aud-eyebrow { 
+    display: inline-block;
+    font-family: var(--body); 
+    font-size: 13px; 
+    font-weight: 700; 
+    letter-spacing: .08em; 
+    text-transform: uppercase; 
+    color: var(--navy); 
+    background: rgba(8, 41, 99, 0.06);
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin: 0 0 20px; 
+  }
+  .aud-hero h1 { 
+    font-size: clamp(32px, 4.5vw, 48px); 
+    color: var(--navy); 
+    margin-bottom: 20px; 
+    line-height: 1.1;
+    font-weight: 800;
+  }
+  .aud-sub { 
+    font-family: var(--body); 
+    font-size: 19px; 
+    line-height: 1.6; 
+    color: var(--muted); 
+    max-width: 48ch; 
+    margin: 0; 
+  }
+  
+  /* Hero Widget Container */
+  .aud-hero__widget {
+    background: var(--white);
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(8, 41, 99, 0.08), 0 2px 8px rgba(8, 41, 99, 0.04);
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .aud-hero__widget::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--cyan);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .aud-micro { 
+    margin-top: 16px; 
+    font-size: 13px; 
+    color: var(--muted); 
+    text-align: center;
+    font-weight: 500;
+  }
+
+  /* Micro-interactions applied if user prefers motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .aud-hero__copy { animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .aud-hero__widget { animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both; }
+  }
+
+  /* General Sections */
+  .aud-section { padding: 88px 0; }
+  .aud-section--paper { background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .aud-section h2 { 
+    font-size: clamp(28px, 4vw, 36px); 
+    color: var(--navy); 
+    margin-bottom: 40px; 
+    font-weight: 800;
+  }
+  .aud-narrow { max-width: 720px; margin: 0 auto; }
+  
+  /* Features Grid */
+  .aud-grid { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 24px; 
+  }
+  .aud-grid li { 
+    background: var(--white); 
+    border: 1px solid var(--rule); 
+    border-radius: 8px; 
+    padding: 24px; 
+    font-family: var(--body); 
+    font-size: 15px; 
+    line-height: 1.55; 
+    color: var(--muted);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .aud-grid li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(8, 41, 99, 0.06);
+    border-color: var(--cyan);
+  }
+  .aud-grid__icon {
+    width: 48px;
+    height: 48px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .aud-grid__icon svg { width: 24px; height: 24px; stroke-width: 1.5px; }
+  .aud-grid li strong { 
+    display: block; 
+    color: var(--navy); 
+    font-family: var(--display); 
+    font-size: 18px; 
+    margin-bottom: 6px; 
+  }
+
+  /* Process Steps */
+  .aud-steps { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    gap: 32px; 
+    max-width: 600px; 
+    position: relative;
+  }
+  .aud-steps::before {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: var(--rule);
+    z-index: 0;
+  }
+  .aud-steps li { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 24px; 
+    font-family: var(--body); 
+    font-size: 18px; 
+    color: var(--navy); 
+    position: relative;
+    z-index: 1;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+  .aud-steps__num { 
+    flex: none; 
+    width: 44px; 
+    height: 44px; 
+    border-radius: 50%; 
+    background: var(--navy); 
+    color: var(--white); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-family: var(--display); 
+    font-weight: 700; 
+    font-size: 18px;
+    box-shadow: 0 0 0 8px var(--paper); /* Hides the line behind it cleanly */
+  }
+  .aud-steps__text { padding-top: 8px; }
+  
+  /* Disclaimer Text */
+  .aud-disclaimer p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted);
+    border-left: 4px solid var(--cyan);
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  /* Interactive FAQ Details */
+  .aud-faq { border-top: 1px solid var(--rule); }
+  .aud-faq details { 
+    border-bottom: 1px solid var(--rule); 
+    transition: background 0.2s ease;
+  }
+  .aud-faq summary { 
+    padding: 24px 0;
+    font-family: var(--display); 
+    font-size: 18px; 
+    color: var(--navy); 
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .aud-faq summary:hover { color: var(--cyan); }
+  .aud-faq summary::-webkit-details-marker { display: none; }
+  .aud-faq summary::after {
+    content: "+";
+    color: var(--navy);
+    font-size: 24px;
+    font-weight: 400;
+    transition: transform 0.3s ease;
+  }
+  .aud-faq details[open] summary { color: var(--navy); }
+  .aud-faq details[open] summary::after { transform: rotate(45deg); }
+  .aud-faq p { 
+    margin: 0 0 24px 0; 
+    font-family: var(--body); 
+    font-size: 16px; 
+    line-height: 1.6;
+    color: var(--muted); 
+    max-width: 60ch;
+  }
+  
+  /* CTA Block */
+  .aud-cta { 
+    background: var(--navy); 
+    text-align: center; 
+    padding: 80px 0;
+  }
+  .aud-cta h2 { color: var(--white); margin-bottom: 16px; }
+  .aud-cta p { color: rgba(255, 255, 255, 0.7); margin: 0 0 32px; font-size: 18px; }
+  .aud-cta .btn { min-width: 240px; }
+  
+  /* Responsive Adjustments */
   @media (max-width: 860px) {
-    .aud-hero__in { grid-template-columns: 1fr; }
-    .aud-grid { grid-template-columns: 1fr; }
+    .aud-hero { padding: 48px 0 56px; }
+    .aud-hero__in { grid-template-columns: 1fr; gap: 48px; }
+    .aud-hero h1 { max-width: 100%; }
+    .aud-hero__widget { padding: 24px 16px; }
+    .aud-section { padding: 56px 0; }
+    .aud-steps::before { left: 19px; }
+    .aud-steps__num { width: 40px; height: 40px; font-size: 16px; }
   }
 </style>
 </head>
@@ -95,7 +319,7 @@
   <section class="aud-hero">
     <div class="wrap aud-hero__in">
       <div class="aud-hero__copy">
-        <p class="aud-eyebrow">Free Online Presence Audit — South Florida Home Service Businesses</p>
+        <p class="aud-eyebrow">Free Online Presence Audit — South Florida</p>
         <h1>Find Out Exactly Where Your Business Is Invisible, Wrong, or Losing Jobs to Competitors Online</h1>
         <p class="aud-sub">One free scan checks your Google Business Profile, your website, your reviews, and 13+ directory listings — then texts you the full report in under 60 seconds. No credit card. No sales call required to see your score.</p>
       </div>
@@ -110,29 +334,80 @@
     <div class="wrap">
       <h2>Your free audit checks</h2>
       <ul class="aud-grid">
-        <li><strong>Business Details</strong> Is your chat widget live, is your number text-enabled, are you replying to reviews</li>
-        <li><strong>Website &amp; Tech</strong> Is your site actually reachable and fast enough to keep visitors</li>
-        <li><strong>Google Business Profile</strong> Is your address, hours, phone, and photos verified and accurate</li>
-        <li><strong>13+ Directory Listings</strong> Google, Facebook, Yelp, Mapquest, and more, checked for match or mismatch</li>
-        <li><strong>Online Reputation</strong> Your real star rating and review reply rate on Google and Facebook</li>
-        <li><strong>Website Performance</strong> How fast your site loads — a slow site loses jobs before the phone even rings</li>
-        <li><strong>Local SEO Heatmap</strong> Where you actually rank around your service area, block by block</li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <strong>Business Details</strong> 
+          Is your chat widget live, is your number text-enabled, are you replying to reviews
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+          </div>
+          <strong>Website &amp; Tech</strong> 
+          Is your site actually reachable and fast enough to keep visitors
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <strong>Google Business Profile</strong> 
+          Is your address, hours, phone, and photos verified and accurate
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <strong>13+ Directory Listings</strong> 
+          Google, Facebook, Yelp, Mapquest, and more, checked for match or mismatch
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <strong>Online Reputation</strong> 
+          Your real star rating and review reply rate on Google and Facebook
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <strong>Website Performance</strong> 
+          How fast your site loads — a slow site loses jobs before the phone even rings
+        </li>
+        <li>
+          <div class="aud-grid__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <strong>Local SEO Heatmap</strong> 
+          Where you actually rank around your service area, block by block
+        </li>
       </ul>
     </div>
   </section>
  
   <section class="aud-section aud-section--paper">
-    <div class="wrap">
+    <div class="wrap aud-narrow">
       <h2>How it works</h2>
       <ol class="aud-steps">
-        <li><span class="aud-steps__num">1</span> Enter your business name — 15 seconds</li>
-        <li><span class="aud-steps__num">2</span> We scan 13+ places your customers already look for you — 60 seconds</li>
-        <li><span class="aud-steps__num">3</span> You get a text and an email with your full score and a plain-English list of what to fix first</li>
+        <li>
+          <span class="aud-steps__num">1</span> 
+          <div class="aud-steps__text">Enter your business name — 15 seconds</div>
+        </li>
+        <li>
+          <span class="aud-steps__num">2</span> 
+          <div class="aud-steps__text">We scan 13+ places your customers already look for you — 60 seconds</div>
+        </li>
+        <li>
+          <span class="aud-steps__num">3</span> 
+          <div class="aud-steps__text">You get a text and an email with your full score and a plain-English list of what to fix first</div>
+        </li>
       </ol>
     </div>
   </section>
  
-  <section class="aud-section">
+  <section class="aud-section aud-disclaimer">
     <div class="wrap aud-narrow">
       <h2>We're not selling you leads.</h2>
       <p>If you've bought leads from Angi, HomeAdvisor, or an "SEO guy" before, you already know how that goes — shared leads, dead numbers, no way to prove any of it worked. This isn't that. The audit costs nothing and comes with no contract. We show you exactly what's broken. What you do with it — fix it yourself, hand it to us, or ignore it — is up to you.</p>
@@ -143,22 +418,22 @@
     <div class="wrap aud-narrow">
       <h2>Questions</h2>
       <div class="aud-faq">
-        <div class="aud-faq__item">
-          <p class="aud-faq__q">How is this different from Angi or every other agency that's called me?</p>
-          <p class="aud-faq__a">We don't sell your info to five other contractors. This is your business, checked once, and the report is yours to keep.</p>
-        </div>
-        <div class="aud-faq__item">
-          <p class="aud-faq__q">I don't have time to learn another dashboard.</p>
-          <p class="aud-faq__a">You don't log into anything. You get a text and an email. That's it.</p>
-        </div>
-        <div class="aud-faq__item">
-          <p class="aud-faq__q">I'm already booked out on word-of-mouth.</p>
-          <p class="aud-faq__a">Good — then this costs you nothing to find out if your online presence is quietly capping how big "booked out" could be.</p>
-        </div>
-        <div class="aud-faq__item">
-          <p class="aud-faq__q">Prove it, don't just tell me.</p>
-          <p class="aud-faq__a">That's the whole point of the audit — it's your numbers, not our claims.</p>
-        </div>
+        <details>
+          <summary>How is this different from Angi or every other agency that's called me?</summary>
+          <p>We don't sell your info to five other contractors. This is your business, checked once, and the report is yours to keep.</p>
+        </details>
+        <details>
+          <summary>I don't have time to learn another dashboard.</summary>
+          <p>You don't log into anything. You get a text and an email. That's it.</p>
+        </details>
+        <details>
+          <summary>I'm already booked out on word-of-mouth.</summary>
+          <p>Good — then this costs you nothing to find out if your online presence is quietly capping how big "booked out" could be.</p>
+        </details>
+        <details>
+          <summary>Prove it, don't just tell me.</summary>
+          <p>That's the whole point of the audit — it's your numbers, not our claims.</p>
+        </details>
       </div>
     </div>
   </section>
@@ -191,4 +466,3 @@
  
 </body>
 </html>
- 
