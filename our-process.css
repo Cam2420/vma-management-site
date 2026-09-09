@@ -1,0 +1,42 @@
+.process-hero { padding: 52px 0 36px; background: var(--paper); text-align: center; }
+.process-hero h1 { font-size: clamp(38px, 6vw, 64px); font-weight: 800; }
+.process-hero .wrap > p:last-child { max-width: 50ch; margin: 22px auto 0; color: var(--muted); }
+.process-path { padding: 44px 0; }
+.process-path__list { display: grid; gap: 0; }
+.process-path__list > li { position: relative; display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 18px; padding-bottom: 32px; }
+.process-path__list > li:not(:last-child)::after { content: ''; position: absolute; top: 50px; bottom: 0; left: 23px; border-left: 2px dashed var(--tan); }
+.process-path__number { position: relative; z-index: 1; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--tan); color: var(--navy); font: 700 24px/1 var(--display); }
+.process-path__meta { font-size: 11px; letter-spacing: .06em; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+.process-path h2 { font-size: 25px; margin-bottom: 12px; }
+.process-path__list h2 + p { font-size: 16px; color: var(--muted); }
+.process-path__note { font-size: 13px; color: var(--muted); padding-top: 20px; border-top: 1px solid var(--rule); }
+.process-support__grid { display: grid; gap: 28px; align-items: center; }
+.process-support h2 { max-width: 22ch; }
+.process-support__grid > div > p:last-child { color: var(--muted); max-width: 47ch; }
+.process-support__list { border-top: 1px solid var(--tan); }
+.process-support__list li { display: flex; align-items: center; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--tan); }
+.process-support__list li > span { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 50%; color: var(--navy); background: var(--tan); font-size: 22px; }
+.process-support__list b { font-size: 18px; }
+.process-support__list p { font-size: 15px; color: var(--muted); margin-top: 4px; }
+.process-next { text-align: center; }
+.process-next p { color: var(--muted); }
+.process-next .btn { margin-top: 26px; }
+.process-next__link { display: block; width: fit-content; max-width: 100%; margin: 18px auto 0; padding: 8px 0; font-size: 15px; text-underline-offset: 4px; }
+.pricing-process > .wrap > h2 { text-align: center; font-size: clamp(28px, 5vw, 40px); margin-bottom: 36px; }
+.pricing-process h3 { font-size: 23px; margin-bottom: 12px; }
+.pricing-process h3 + p { font-size: 16px; color: var(--muted); }
+.pricing-process__link { display: block; width: fit-content; max-width: 100%; margin: 20px auto 0; padding: 8px 0; font-size: 16px; font-weight: 600; text-underline-offset: 4px; }
+@media (min-width: 768px) {
+  .process-hero { padding: 64px 0 44px; }
+  .process-path { padding: 56px 0; }
+  .process-path__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+  .process-path__list > li { display: block; padding-bottom: 0; }
+  .process-path__number { margin-bottom: 22px; width: 64px; height: 64px; font-size: 30px; }
+  .process-path__list > li:not(:last-child)::after { display: none; }
+  .process-path__note { margin-top: 36px; }
+  .process-support__grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+}
+@media (min-width: 1100px) {
+  .process-path__list { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+  .process-path__list > li:not(:last-child)::after { display: block; top: 31px; bottom: auto; left: 80px; width: calc(100% - 68px); border-left: 0; border-top: 2px dashed var(--tan); }
+}
