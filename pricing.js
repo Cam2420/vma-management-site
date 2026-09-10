@@ -2,13 +2,19 @@
   'use strict';
   var control = document.querySelector('[data-billing-control]');
   var toggle = document.getElementById('annual-billing');
+  var checkout = document.querySelector('[data-plan-checkout]');
+  var monthlyCheckoutUrl = checkout ? checkout.getAttribute('href') : '';
   if (control && toggle) {
     control.hidden = false;
     var renderBilling = function () {
-      document.querySelector('[data-price-amount]').textContent = toggle.checked ? '$4,999' : '$449';
+      document.querySelector('[data-price-amount]').textContent = toggle.checked ? '$4,490' : '$449';
       document.querySelector('[data-price-unit]').textContent = toggle.checked ? '/yr upfront' : '/mo';
-      document.querySelector('[data-price-note]').textContent = toggle.checked ? 'Annual offer + 2 months free. 14 months of service in total.' : 'Billed monthly. No setup fee.';
-      document.querySelector('[data-plan-terms]').textContent = toggle.checked ? 'No setup fee · Pay upfront for 12 months and receive 2 additional months free.' : 'Month-to-month · No long-term contract · Cancel any time.';
+      document.querySelector('[data-price-note]').textContent = toggle.checked ? 'Get 2 months free. Pay for 10 months, receive 12.' : 'Billed monthly. No setup fee.';
+      document.querySelector('[data-plan-terms]').textContent = toggle.checked ? 'No setup fee · Billed upfront for 12 months · Renews annually unless cancelled.' : 'Month-to-month · No long-term contract · Cancel any time.';
+      if (checkout) {
+        checkout.href = toggle.checked ? checkout.getAttribute('data-annual-checkout') : monthlyCheckoutUrl;
+        checkout.textContent = toggle.checked ? 'Start My Annual Plan' : 'Start My Monthly Plan';
+      }
     };
     toggle.addEventListener('change', renderBilling);
     renderBilling();
