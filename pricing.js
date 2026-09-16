@@ -9,8 +9,8 @@
     var renderBilling = function () {
       document.querySelector('[data-price-amount]').textContent = toggle.checked ? '$4,490' : '$449';
       document.querySelector('[data-price-unit]').textContent = toggle.checked ? '/yr upfront' : '/mo';
-      document.querySelector('[data-price-note]').textContent = toggle.checked ? 'Get 2 months free. Pay for 10 months, receive 12.' : 'Billed monthly. No setup fee.';
-      document.querySelector('[data-plan-terms]').textContent = toggle.checked ? 'No setup fee · Billed upfront for 12 months · Renews annually unless cancelled.' : 'Month-to-month · No long-term contract · Cancel any time.';
+      document.querySelector('[data-price-note]').textContent = toggle.checked ? 'Get 2 months free. Pay for 10 months, receive 12. $4,490 charged today and every 12 months until cancelled.' : '$449 charged today, then monthly until cancelled. No setup fee.';
+      document.querySelector('[data-plan-terms]').textContent = toggle.checked ? 'No setup fee. Cancel before renewal. Service continues through your paid year; no partial-year refund for a change of mind.' : 'Cancel before renewal. Service continues through your paid month; no partial-month refund for a change of mind.';
       if (checkout) {
         checkout.href = toggle.checked ? checkout.getAttribute('data-annual-checkout') : monthlyCheckoutUrl;
         checkout.textContent = toggle.checked ? 'Start My Annual Plan' : 'Start My Monthly Plan';

@@ -26,6 +26,9 @@
 .price-card .btn { width: 100%; min-width: 0; }
 .price-card .btn:focus-visible { outline-color: var(--white); }
 .price-card__terms { margin-top: 18px; font-size: 13px; }
+.price-card__terms + .btn { margin-top: 24px; }
+.price-card__terms a { text-decoration: underline; text-underline-offset: 3px; }
+.price-card__terms a:focus-visible { outline-color: var(--white); }
 .service-guide__wrap { max-width: 920px; }
 .service-guide .section-intro { text-align: center; }
 .service-guide .section-intro > p:last-child { color: var(--muted); }

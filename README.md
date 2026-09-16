@@ -1,3 +1,19 @@
+# Current release: performance pilot website (16 September 2026)
+
+This section supersedes the historical monthly/annual offer, “never print a price,” guaranteed delivery/refund, and deployment instructions below. The current website explains a **30-live-campaign-day pilot: $0 setup, $450 total advertising budget paid directly to Meta, and a 20% fee on qualifying collected revenue under agreed pilot terms**. The primary action is **Book a 20-Minute Pilot Fit Call**, using the existing external calendar.
+
+The founder authorized backing up the previous live site and publishing this redesign on 16 September 2026. The exact previous production source is preserved in [`backups/`](backups/README.md). Terms and Privacy are published with the release; pilot-specific definitions remain subject to a signed agreement before client services begin.
+
+Vercel runs `node scripts/build-site.mjs` and serves only `dist/`. The backup ZIP, Markdown project notes, scripts and Git metadata are excluded from the public output. Build locally with the same command; no package installation is needed.
+
+The original `main.js`, fonts, supplied brand assets and all existing trade photos remain intact. New behavior is in `performance.js`. Existing text/voice widgets load only on the production domain using their previous core-page mapping; the audit route remains without those widgets. Local previews disable live widgets so illustrative interactions stay on the page. The existing external booking and free full online presence audit links remain available; do not submit test inquiries or trigger live customer workflows.
+
+The audit's canonical, Open Graph and structured-data URL is `/audit`, matching Vercel's `trailingSlash: false` setting. Existing `/audit/` navigation links are retained as directory-friendly aliases for the local preview; production normalizes the route.
+
+The material below is historical implementation reference, not authority to restore a superseded offer or publish this update.
+
+---
+
 # VMA Management LLC — website
 
 One-page marketing site for VMA Management LLC. Plain static HTML, CSS, and vanilla

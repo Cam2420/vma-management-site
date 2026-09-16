@@ -1,0 +1,7 @@
+backups/
+dist/
+*.md
+.git/
+.claude/
+.idea/
+.vscode/

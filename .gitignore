@@ -13,3 +13,4 @@
 # Local tooling (not part of the static site)
 .claude/
 node_modules/
+dist/

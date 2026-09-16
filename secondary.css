@@ -1,0 +1,69 @@
+/* Supporting pages for the VMA performance pilot. Shared branding is in performance.css. */
+.performance .subpage-hero { padding: 86px 0 72px; }
+.performance .subpage-hero h1 { max-width: 960px; font-size: clamp(38px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -.045em; }
+.performance .subpage-intro { max-width: 760px; margin-top: 24px; margin-bottom: 28px; }
+.performance div.section-heading { max-width: 780px; margin-bottom: 32px; font: inherit; letter-spacing: normal; }
+.performance div.section-heading h2 { font-size: clamp(30px,3.5vw,44px); line-height: 1.1; letter-spacing: -.035em; }
+.performance div.section-heading .intro { margin-top: 22px; }
+.performance .book-band h2 { font-size: clamp(31px,3.5vw,44px); line-height: 1.1; }
+.performance .book-band h2 + .intro { margin-top: 22px; }
+.performance .subpage-footnote { margin-top: 28px; }
+.performance .subpage-action { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 32px; margin-top: 30px; }
+.performance .pilot-economics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-top: 42px; }
+.performance .pilot-cost { padding: 26px; border: 1px solid #c1b4a5; border-radius: 18px; background: #fff; }
+.performance .pilot-cost__label { font-size: 14px; font-weight: 650; color: #465772; }
+.performance .pilot-cost__number { margin: 16px 0; font-family: var(--display); font-size: clamp(50px,6vw,72px); font-weight: 750; line-height: 1; letter-spacing: -.055em; color: var(--navy); }
+.performance .pilot-cost > p:last-child { font-size: 16px; line-height: 1.55; color: #465772; }
+.performance .subpage-panels { margin-top: 32px; }
+.performance .subpage-panels h3 { font-size: 24px; line-height: 1.2; }
+.performance .subpage-panels .eyebrow { font-size: 11px; }
+.performance .subpage-panels .bullet-list { margin-top: 22px; }
+.performance .subpage-panels h3 + p { margin-top: 18px; }
+.performance .pilot-app-summary { margin-top: 30px; padding: 28px 30px; border-left: 4px solid var(--tan); background: var(--paper); }
+.performance .pilot-app-summary h3 { max-width: 35ch; font-size: 27px; line-height: 1.2; }
+.performance .pilot-app-summary p { max-width: 88ch; margin-top: 18px; }
+.performance .subpage-split { align-items: center; }
+.performance .subpage-split h2,
+.performance #optional-profile-check { font-size: clamp(30px,3.5vw,44px); line-height: 1.1; }
+.performance .subpage-split h2 + .intro { margin-top: 24px; }
+.performance .subpage-copy { margin-top: 18px; }
+.performance .pilot-calculation { padding: 30px; border: 1px solid #b89a78; border-radius: 20px; background: var(--paper); }
+.performance .pilot-calculation > div { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 14px 0; }
+.performance .pilot-calculation span { font-size: 15px; }
+.performance .pilot-calculation strong { font-family: var(--display); font-size: 30px; line-height: 1.2; letter-spacing: -.03em; white-space: nowrap; }
+.performance .pilot-calculation .pilot-calculation__total { margin-top: 12px; border-top: 2px solid var(--navy); padding-top: 24px; }
+.performance .pilot-calculation__total strong { font-size: 48px; }
+.performance .pilot-calculation > p { margin-top: 18px; }
+.performance .pilot-agreement h3 { font-size: 25px; line-height: 1.2; }
+.performance .pilot-agreement .bullet-list { margin: 20px 0; }
+.performance .subpage-faq { border-top: 1px solid #aab7c8; }
+.performance .subpage-faq details { border-bottom: 1px solid #aab7c8; }
+.performance .subpage-faq summary { padding: 22px 35px 22px 0; cursor: pointer; font-size: 18px; line-height: 1.45; font-weight: 650; }
+.performance .subpage-faq details > div { padding: 0 24px 24px 0; color: #465772; }
+.performance .subpage-faq details > div p + p { margin-top: 14px; }
+.performance .subpage-steps { gap: 24px; }
+.performance .subpage-steps li { padding: 30px; border: 1px solid #d2dae4; border-radius: 20px; background: var(--paper); }
+.performance .subpage-step-number { display: block; margin-bottom: 20px; font-family: var(--display); font-size: 36px; line-height: 1; font-weight: 650; color: #725337; }
+.performance .subpage-steps li::before { content: none; }
+.performance .subpage-steps h3 { font-size: 25px; line-height: 1.2; }
+.performance .subpage-steps p { margin-top: 18px; }
+.performance .subpage-steps .micro { padding-top: 18px; border-top: 1px solid #c9c0b5; }
+.performance .subpage-control .text-link { display: inline-block; margin-top: 26px; }
+.performance .assessment-mark { display: block; margin-bottom: 18px; color: #725337; font-family: var(--display); font-size: 50px; font-weight: 650; line-height: 1; }
+.performance .book-band .text-link { display: block; width: fit-content; margin: 22px auto 0; }
+@media (max-width: 700px) {
+  .performance .subpage-hero { padding: 56px 0 48px; }
+  .performance .pilot-economics { grid-template-columns: 1fr; gap: 14px; margin-top: 30px; }
+  .performance .pilot-cost { display: grid; grid-template-columns: 90px minmax(0,1fr); gap: 8px 18px; padding: 22px; }
+  .performance .pilot-cost__number { grid-column: 1; grid-row: 1 / 3; align-self: center; margin: 0; font-size: 44px; }
+  .performance .pilot-cost__label { grid-column: 2; grid-row: 1; }
+  .performance .pilot-cost > p:last-child { grid-column: 2; font-size: 14px; }
+  .performance .subpage-action { gap: 18px; }
+  .performance .pilot-calculation { padding: 24px; }
+  .performance .pilot-calculation > div { gap: 16px; }
+  .performance .subpage-steps li { padding: 25px; }
+}
+@media (max-width: 360px) {
+  .performance .pilot-cost { grid-template-columns: 78px minmax(0,1fr); padding: 19px; gap: 8px 12px; }
+  .performance .pilot-cost__number { font-size: 39px; }
+}
