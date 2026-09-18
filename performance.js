@@ -58,6 +58,52 @@
       });
     });
   });
+  // Manual trade browsing: native touch scrolling plus keyboard and button controls.
+  document.querySelectorAll('[data-trade-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('.trades__track');
+    var cards = Array.from(track.children);
+    var previous = carousel.querySelector('[data-trade-prev]');
+    var next = carousel.querySelector('[data-trade-next]');
+    var position = carousel.querySelector('[data-trade-position]');
+    var first = 0;
+    var scrollTimer;
+    function count() {
+      return Math.max(1, parseInt(getComputedStyle(carousel).getPropertyValue('--trades-per-view'), 10) || 1);
+    }
+    function stride() {
+      return cards[0].getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 0);
+    }
+    function update() {
+      first = Math.min(cards.length - count(), Math.max(0, Math.round(track.scrollLeft / stride())));
+      position.textContent = (first + 1) + '–' + Math.min(first + count(), cards.length) + ' of ' + cards.length;
+      previous.disabled = first === 0;
+      next.disabled = first + count() >= cards.length;
+    }
+    function go(index, immediate) {
+      var destination = Math.max(0, Math.min(index, cards.length - count()));
+      track.scrollTo({left: destination * stride(), behavior: immediate || window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    }
+    previous.addEventListener('click', function () { go(Math.round(track.scrollLeft / stride()) - count()); });
+    next.addEventListener('click', function () { go(Math.round(track.scrollLeft / stride()) + count()); });
+    track.addEventListener('keydown', function (event) {
+      var current = Math.round(track.scrollLeft / stride());
+      if (event.key === 'ArrowRight') go(current + count());
+      else if (event.key === 'ArrowLeft') go(current - count());
+      else if (event.key === 'Home') go(0);
+      else if (event.key === 'End') go(cards.length - count());
+      else return;
+      event.preventDefault();
+    });
+    track.addEventListener('scroll', function () {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(update, 120);
+    }, {passive: true});
+    function resize() { go(first, true); update(); }
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(track);
+    else window.addEventListener('resize', resize);
+    carousel.querySelector('[data-trade-controls]').hidden = false;
+    update();
+  });
   // Retain existing production integrations. Local reviews never load customer-facing widgets.
   if ((location.hostname === 'vmamgmt.com' || location.hostname === 'www.vmamgmt.com') && !/^\/audit(?:\/|$)/.test(location.pathname)) {
     var widgetIds = /\/(privacy|terms)(\.html)?\/?$/.test(location.pathname) ? ['6a690a9689b8c5f4e82eeac5'] : ['6a7c7bea93aa928cd27f8793','6a690a9689b8c5f4e82eeac5'];

@@ -9,6 +9,10 @@
 .performance .book-band h2 + .intro { margin-top: 22px; }
 .performance .subpage-footnote { margin-top: 28px; }
 .performance .subpage-action { display: flex; align-items: center; flex-wrap: wrap; gap: 24px 32px; margin-top: 30px; }
+.performance .setup-detail { margin-top:38px;border-top:1px solid #cbd6de;border-bottom:1px solid #cbd6de; }
+.performance .setup-detail>summary { padding:22px 0;font-size:17px;font-weight:650;cursor:pointer; }
+.performance .setup-detail .subpage-steps { margin:0 0 28px; }
+.performance .qualifying-definition { margin-top:24px;max-width:75ch;color:#465772;font-size:15px;line-height:1.7; }
 .performance .pilot-economics { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-top: 42px; }
 .performance .pilot-cost { padding: 26px; border: 1px solid #c1b4a5; border-radius: 18px; background: #fff; }
 .performance .pilot-cost__label { font-size: 14px; font-weight: 650; color: #465772; }
