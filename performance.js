@@ -1,5 +1,17 @@
 (function () {
   'use strict';
+  // Open an offer explanation when a visitor follows its in-page link.
+  document.querySelectorAll('a[href="#payment-window"]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      var explanation = document.getElementById('payment-window');
+      if (explanation) {
+        event.preventDefault();
+        explanation.open = true;
+        explanation.querySelector('summary').focus({preventScroll: true});
+        explanation.scrollIntoView({block: 'start'});
+      }
+    });
+  });
   var menu = document.querySelector('.menu-toggle');
   var nav = document.querySelector('#site-nav');
   if (menu && nav) {

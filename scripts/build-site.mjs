@@ -8,7 +8,7 @@ const output = join(root, 'dist');
 const pages = [
   'index.html', 'pricing.html', 'our-process.html', 'privacy.html', 'terms.html',
   'audit/index.html', 'styles.css', 'performance.css', 'secondary.css',
-  'home-flow.css', 'downloaded-visuals.css', 'gbp-visuals.css', 'main.js',
+  'home-flow.css', 'offers.css', 'downloaded-visuals.css', 'gbp-visuals.css', 'main.js',
   'performance.js', 'robots.txt', 'sitemap.xml', 'site.webmanifest',
   'favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png',
   'apple-touch-icon.png', 'icon-192.png', 'icon-512.png',

@@ -1,0 +1,38 @@
+/* The two offers share the established VMA typography and colors. */
+.performance .offers-hero h1 { max-width:1050px; }
+.offers-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:38px; }
+.offer-card { display:flex;flex-direction:column;padding:32px;border:1px solid #b9cbd8;border-top:5px solid var(--navy);border-radius:18px;background:#fff;scroll-margin-top:110px; }
+.offer-card--google { border-top-color:var(--cyan); }
+.offer-card h2 { margin:16px 0;font-size:30px;line-height:1.18;letter-spacing:-.025em; }
+.offer-card>p:not(.eyebrow) { color:#465772;font-size:16px;line-height:1.7; }
+.offer-prices { margin:28px 0; }
+.offer-prices>div { display:flex;align-items:center;justify-content:space-between;gap:20px;padding:15px 0;border-top:1px solid #d4dfe7; }
+.offer-prices dt { max-width:25ch;font-size:15px;line-height:1.5; }
+.offer-prices dd { margin:0;font-family:var(--display);font-size:38px;line-height:1.1;font-weight:750;letter-spacing:-.04em;white-space:nowrap; }
+.monthly-price { margin:28px 0;padding:26px 0;border-top:1px solid #d4dfe7;border-bottom:1px solid #d4dfe7; }
+.monthly-price>strong { display:block;font-family:var(--display);font-size:62px;line-height:1.1;letter-spacing:-.04em; }
+.monthly-price>strong>span { font-family:var(--sans);font-size:19px;font-weight:500;letter-spacing:0; }
+.monthly-price p { margin-top:10px;font-size:15px; }
+.monthly-price .monthly-terms { font-weight:650; }
+.offer-inclusions { list-style:none;margin:0;padding:0; }
+.offer-inclusions li { margin-bottom:18px;color:#465772;font-size:15px;line-height:1.75; }
+.offer-inclusions strong { color:var(--navy); }
+.offer-conditions { border-top:1px solid #d4dfe7;margin-top:6px;padding-top:18px; }
+.offer-conditions p { color:#465772;font-size:14px;line-height:1.7; }
+.offer-conditions p+p { margin-top:14px; }
+.offer-conditions .text-link { display:inline-block;margin-top:16px;font-size:14px; }
+.offer-action { margin-top:auto;padding-top:26px; }
+.offer-action .btn { width:100%;text-align:center; }
+.offers-choice { margin-top:26px;max-width:80ch;font-size:15px;color:#465772; }
+.offers-focus p:not(.eyebrow) { color:#465772;font-size:17px;line-height:1.75; }
+.payment-example { margin:20px 0;padding:20px;background:#fff;border-left:3px solid var(--cyan); }
+.payment-example p { margin-top:12px; }
+#payment-window { scroll-margin-top:110px; }
+@media(max-width:760px) {
+ .offers-grid { grid-template-columns:1fr; }
+ .offer-card { padding:25px 22px; }
+ .offer-card h2 { font-size:27px; }
+ .offer-prices dd { font-size:34px; }
+ .offer-prices dt { max-width:21ch;font-size:14px; }
+ .monthly-price>strong { font-size:54px; }
+}
