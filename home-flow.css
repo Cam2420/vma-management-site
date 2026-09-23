@@ -140,3 +140,9 @@
   .trade-carousel { --trades-per-view:1; }
   .trades__track { grid-auto-columns:100%; }
 }
+
+/* Booking offer: retain the established cards and responsive carousel. */
+.service-offer-note { margin-top:24px;max-width:78ch;color:#465772;line-height:1.7;font-size:15px; }
+.trades--carousel .trades__tile>span { flex-direction:column;justify-content:center;gap:0; }
+.trades--carousel .trades__tile>span small { display:block;margin-top:8px;font:400 13px/1.5 var(--body);color:#465772; }
+.trades-all>p { max-width:80ch;padding:18px 0;line-height:1.7; }

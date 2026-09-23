@@ -1,9 +1,18 @@
 (function () {
   'use strict';
+  // Reveal the appointment definition when linked from another page.
+  function revealAppointmentRules() {
+    if (location.hash === '#appointment-rules') {
+      var rules = document.getElementById('appointment-rules');
+      if (rules) rules.open = true;
+    }
+  }
+  revealAppointmentRules();
+  window.addEventListener('hashchange', revealAppointmentRules);
   // Open an offer explanation when a visitor follows its in-page link.
-  document.querySelectorAll('a[href="#payment-window"]').forEach(function (link) {
+  document.querySelectorAll('a[href="#appointment-rules"]').forEach(function (link) {
     link.addEventListener('click', function (event) {
-      var explanation = document.getElementById('payment-window');
+      var explanation = document.getElementById('appointment-rules');
       if (explanation) {
         event.preventDefault();
         explanation.open = true;
@@ -43,7 +52,7 @@
     chat.focus({preventScroll:true});
     chat.scrollIntoView({block:'center',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
     var status = document.getElementById('ad-demo-status');
-    if (status) status.textContent = 'Example opened: the customer starts the conversation and shares their job details.';
+    if (status) status.textContent = 'Example opened: the customer shares project details and confirms an estimate appointment.';
   });
   document.querySelectorAll('[data-gbp-tabs]').forEach(function (tablist) {
     var tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
